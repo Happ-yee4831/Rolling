@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# 프로젝트 planning
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[파일 컨벤션](#파일-컨벤션)
+[기술 스택](#기술-스택)
+[일정 및 마일스톤 관리 방법](#일정-및-마일스톤-관리-방법)
+[효율적인 의사소통 방법](#효율적인-의사소통-방법)
+[R&R 분배](#rr-분배)
+[Git 레포 세팅, 커밋 메시지 방식](#git-레포-세팅-커밋-메시지-방식)
 
-## Available Scripts
+## 파일 컨벤션
 
-In the project directory, you can run:
+- api: (https://rolling-api.vercel.app/8-5/)와 통신하는 코드 담는 곳
+- assets: png, svg 등 여러 이미지 파일을 올리는 곳
+- components: 페이지 컴포넌트를 제외한 모든 컴포넌트를 담는 곳
+- hooks: custom hooks를 만드는 곳
+- layouts: 각 route의 공통 layout을 만들어 두는 곳
+- pages: url 기준 각 path 값에 해당하는 컴포넌트를 담는 곳
+- styles: css 파일을 담는 곳 (컴포넌트 파일 이름과 똑같이 작성한다.)
+- utils: custom hook을 제외한 공통적으로 쓰일 유틸함수를 담는 곳
 
-### `npm start`
+## 기술 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- dayjs: 날짜 정보를 get, set할 수 있는 라이브러리
+- axios: fetch를 대체할 비동기 통신 라이브러리
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 일정 및 마일스톤 관리 방법
 
-### `npm test`
+- jira atlassian 으로 타임라인, 칸단 보드 작성
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 효율적인 의사소통 방법
 
-### `npm run build`
+- (월 ~ 토) 오후 2시 ~ 5시까지 코어타임
+- (월 ~ 토) 오후 3시에 데일리 스크럼
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## R&R 분배
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 신윤하 : **메인 페이지** "/", **생성된 롤링페이퍼 수정 페이지** "/post/{id}/edit"
+- 강효성 : **롤링페이퍼 만들기 페이지** "/post", **롤링페이퍼에 메세지 보내기 페이지** "/post/{id}/message"
+- 조규진 : **롤링페이퍼 목록 페이지** "/list"
+- 김강우 : **생성된 롤링페이퍼 페이지** "/post/{id}"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Git 레포 세팅, 커밋 메시지 방식
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 커밋 메시지 방식 : 한글로 커밋 메시지를 작성해주세요
+  > 제목과 설명을 모두 잘 작성하시면 됩니다.
+  > push 시에는 각자의 [이름]으로 된 branch에 push하셔야합니다. **절대 main 하지 마세요!!**
+  > pull 받을 때에는 미리 안내하겠습니다. (각자의 이름으로 만든 branch에서 merge할 시간이 필요합니다.)
