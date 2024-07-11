@@ -1,5 +1,5 @@
 const BASE_URL = `https://rolling-api.vercel.app/8-5`;
-const ID = 0;
+const ID = 1;
 
 const backgroundColors = ['beige' | 'purple' | 'blue' | 'green'];
 
@@ -50,4 +50,19 @@ async function postRecipientMessage(id) {
   console.log(result);
 }
 
-postRecipientMessage(8390);
+async function patchMessageById(id) {
+  const response = await fetch(`${BASE_URL}/messages/${id}/`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      profileImageURL: profileImageURLs[ID],
+    }),
+  });
+  console.log(response);
+  const result = await response.json();
+  console.log(result);
+}
+
+patchMessageById(15128);
