@@ -1,12 +1,12 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from 'layouts/Layout';
 import Home from 'pages/Home';
-import List from 'pages/List';
+import ListPage from 'pages/List';
 import Post from 'pages/Post';
 import PostId from 'pages/PostId';
 import PostIdEdit from 'pages/PostIdEdit';
 import PostIdMessage from 'pages/PostIdMessage';
+import NotFoundPage from 'pages/NotFound';
 
 function Router() {
   return (
@@ -14,7 +14,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="list" element={<List />} />
+          <Route path="list" element={<ListPage />} />
           <Route path="post">
             <Route index element={<Post />} />
             <Route path=":id">
@@ -23,6 +23,7 @@ function Router() {
               <Route path="message" element={<PostIdMessage />} />
             </Route>
           </Route>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
