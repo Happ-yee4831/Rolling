@@ -3,8 +3,31 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   padding: 11px 24px;
-  border-bottom: 1px solid $gray-100;
+  img {
+    display: flex;
+    align-items: center;
+    height: 30px;
+  }
+  a:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid $gray-border;
+    border-radius: 6px;
+    color: $gray-900;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+}
+
+.border {
+  height: 1px;
+  background-color: $gray-border;
 }
