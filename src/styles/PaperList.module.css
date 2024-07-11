@@ -1,0 +1,10 @@
+.paperList {
+  display: flex;
+  gap: 20px;
+}
+
+.rollingPaper {
+  background-color: brown;
+  width: 275px;
+  height: 260px;
+}
