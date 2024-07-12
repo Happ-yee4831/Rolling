@@ -13,6 +13,7 @@ function PostId() {
   const [recipient, setRecipient] = useState(initialDefault);
   const { name, backgroundImageURL, recentMessages } = recipient;
 
+  console.log(recipient);
   const handleLoad = async postId => {
     const result = await getRecipientById(postId);
     setRecipient(result);
@@ -27,11 +28,11 @@ function PostId() {
       <div>
         <h1>To. {name}</h1>
         <img src={backgroundImageURL} alt="background" />
-        <figure>
+        <div>
           {recentMessages.map(message => (
             <img key={message.id} src={message.profileImageURL} alt="profile" />
           ))}
-        </figure>
+        </div>
         <div>
           <img src={thumbEmoji} alt="emoji" />
           <p>24</p>
