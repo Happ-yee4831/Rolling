@@ -2,6 +2,12 @@
   top: 124px;
   left: 360px;
   margin: 30px;
+
+  /* text-align: center; */
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center; 수직 정렬 */
+  /* justify-content: center; 수평 정렬 */
 }
 
 .MainFirstContainer {
@@ -40,7 +46,6 @@
 .Bold-text {
   font-size: 24px;
   font-weight: 700;
-
   line-height: 36px;
 
   display: block;
@@ -61,8 +66,29 @@
   margin-top: 30px;
   padding: 60px 192px 60px 125px;
   border-radius: 16px;
-
   background: #f6f8ff;
+
   display: flex;
   justify-content: space-between;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.button {
+  width: 280px;
+  border-radius: 12px;
+  border: none;
+  padding: 14px;
+  background: #9935ff;
+
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff;
 }
