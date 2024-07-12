@@ -18,7 +18,7 @@
   left: 60px;
 }
 
-.PointOne {
+.Point {
   padding: 6px 12px 6px 12px;
   gap: 10px;
   border-radius: 50px;
@@ -55,4 +55,14 @@
 
   display: block;
   padding-top: 8px;
+}
+
+.MainSecondContainer {
+  margin-top: 30px;
+  padding: 60px 192px 60px 125px;
+  border-radius: 16px;
+
+  background: #f6f8ff;
+  display: flex;
+  justify-content: space-between;
 }
