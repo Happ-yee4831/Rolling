@@ -5,23 +5,18 @@
 }
 
 .MainFirstContainer {
-  padding: 60px;
+  padding: 60px 40px 60px 60px;
   border-radius: 16px;
 
   background: #f6f8ff;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* 세로축 중앙 정렬 (옵션) */
 }
 
-/* .Content-1 {
+.section1 {
   top: 60px;
   left: 60px;
-  gap: 16px;
-
-  display: grid;
-  grid-template-columns: 16px;
-} */
+}
 
 .PointOne {
   padding: 6px 12px 6px 12px;
@@ -60,11 +55,4 @@
 
   display: block;
   padding-top: 8px;
-}
-
-.RorringList-1 {
-  width: 640px;
-  height: 161.98px;
-  top: 21px;
-  left: 40px;
 }
