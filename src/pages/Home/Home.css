@@ -86,3 +86,100 @@
   text-align: center;
   color: #ffffff;
 }
+
+.MainPage-Card {
+  /* width: 205.43px; */
+  /* height: 161.98px; */
+  padding: 18.57px 12.03px 14.66px;
+
+  border-radius: 11.85px;
+  border: 0.99px solid #dbd9e9;
+  background: #ffffff;
+}
+
+.profileForm {
+  display: flex;
+
+  width: 180.67px;
+  height: 45.63px;
+}
+
+.img-Profile {
+  width: 31.6px;
+  height: 31.61px;
+  top: 19.75px;
+  left: 12.03px;
+  border-radius: 56.44px;
+
+  border: 0.56px solid #eeeeee;
+}
+
+.textForm {
+  width: 62.98px;
+  height: 33.98px;
+  gap: 1.98px;
+  margin-left: 7.76px;
+  align-content: center;
+}
+
+.From-text {
+  font-size: 11.85px;
+  font-weight: 400;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+}
+
+.Name-text {
+  font-size: 11.85px;
+  font-weight: 700;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+}
+
+.Freind-text {
+  padding: 2.06px 5.35px 2.06px 5.35px;
+  border-radius: 2.14px;
+  background: #e2f5ff;
+
+  font-size: 9.88px;
+  font-weight: 400;
+  line-height: 13.83px;
+  color: #00a2fe;
+}
+
+.Line-MainPage-Card {
+  /* width: 179.85px; */
+  height: 0.99px;
+
+  background: #e1e1e1;
+}
+
+.TextBox-MainPage-Card {
+  width: 179.85px;
+  height: 53.53px;
+  margin-top: 7.9px;
+
+  font-size: 11.85px;
+  font-weight: 400;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #555555;
+}
+
+.Date-MainPage-Card {
+  width: 50px;
+  height: 13px;
+
+  font-size: 9.88px;
+  font-weight: 400;
+  line-height: 12.85px;
+  text-align: left;
+  color: #777777;
+}
+
+.plusForm {
+  border: 0.99px solid #00000066;
+}
