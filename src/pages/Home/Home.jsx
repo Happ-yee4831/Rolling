@@ -1,7 +1,5 @@
 import React from 'react';
 import './Home.css';
-import rorringList1 from '../assets/images/RorringList_1.png';
-import rorringList2 from '../assets/images/RorringList_2.png';
 
 function Home() {
   return (
@@ -18,11 +16,12 @@ function Home() {
           </span>
           <span className="Plain-text">로그인 없이 자유롭게 만들어요.</span>
         </div>
-        <img src={rorringList1} alt="Rorring1" />
+        <div className="">
+          <div>test</div>
+        </div>
       </div>
 
       <div className="MainSecondContainer">
-        <img src={rorringList2} alt="Rorring2" />
         <div className="section2">
           <span className="Point">
             Point. 02 <br />
