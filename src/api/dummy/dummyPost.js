@@ -4,7 +4,7 @@ const ID = 1;
 const backgroundColors = ['beige' | 'purple' | 'blue' | 'green'];
 
 async function postRecipients() {
-  const response = await fetch('https://rolling-api.vercel.app/8-5/recipients/', {
+  const response = await fetch(`${BASE_URL}/recipients/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -17,7 +17,6 @@ async function postRecipients() {
     }),
   });
   const result = await response.json();
-  console.log(result);
 }
 
 const relationships = ['친구', '지인', '동료', '가족'];
@@ -45,7 +44,20 @@ async function postRecipientMessage(id) {
       font: fonts[ID],
     }),
   });
-  console.log(response);
+  const result = await response.json();
+}
+
+async function postRecipientsReactions(id) {
+  const response = await fetch(`${BASE_URL}/8-5/recipients/${id}/reactions/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      emoji: '😂',
+      type: 'increase',
+    }),
+  });
   const result = await response.json();
   console.log(result);
 }
@@ -60,9 +72,7 @@ async function patchMessageById(id) {
       profileImageURL: profileImageURLs[ID],
     }),
   });
-  console.log(response);
   const result = await response.json();
-  console.log(result);
 }
 
-patchMessageById(15128);
+postRecipientsReactions(8390);
