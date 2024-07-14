@@ -47,14 +47,16 @@ async function postRecipientMessage(id) {
   const result = await response.json();
 }
 
-async function postRecipientsReactions(id) {
-  const response = await fetch(`${BASE_URL}/8-5/recipients/${id}/reactions/`, {
+const emojis = ['😂', '😂', '😂', '😂', '😊', '🤣', '❤️', '👍', '👍', '👍', '👍', '👍'];
+
+async function postRecipientsReactions(id, emoji) {
+  const response = await fetch(`${BASE_URL}/recipients/${id}/reactions/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      emoji: '😂',
+      emoji,
       type: 'increase',
     }),
   });
@@ -75,4 +77,6 @@ async function patchMessageById(id) {
   const result = await response.json();
 }
 
-postRecipientsReactions(8390);
+emojis.forEach(emoji => {
+  postRecipientsReactions(8390, emoji);
+});
