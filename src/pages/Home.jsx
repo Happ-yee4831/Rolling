@@ -4,7 +4,7 @@ import rorringList1 from '../assets/images/RorringList_1.svg';
 import rorringList2 from '../assets/images/RorringList_2.png';
 
 // TODO: component 구현은 추후 진행예정
-function Home() {
+function _Home() {
   return (
     <div className="MainContainer">
       <div className="MainFirstContainer">
@@ -42,6 +42,14 @@ function Home() {
         </button>
       </div>
     </div>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <div>Home</div>
+    </>
   );
 }
 
