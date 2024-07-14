@@ -1,57 +1,82 @@
 import React, { useEffect, useState } from 'react';
-import getRecipientById from 'api';
+import { getRecipientById, getMessagesByRecipientId } from 'api';
 import { useParams } from 'react-router-dom';
 import { Receiver } from 'styles/styled/PostId';
+import axios from 'axios';
 
 const initialDefault = {
   name: '',
   recentMessages: [{ id: 1, profileImageURLs: 'https://avatars.githubusercontent.com/u/170175553?v=4' }],
 };
 
-function getSendersProfile(messages) {
-  const recentSendersProfile = [];
-  const sendersId = [];
-
-  for (let i = 0; i < messages.length; i += 1) {
-    if (sendersId.length > 4) break;
-    if (sendersId.includes(messages[i].id) === false) {
-      sendersId.push(messages[i].id);
-      recentSendersProfile.push(messages[i].profileImageURL);
-    }
+export async function getMessagesByNextCursor(nextCursor) {
+  try {
+    const result = await axios.get(nextCursor);
+    return result.data;
+  } catch (err) {
+    throw new Error('잘못 요청된 getMessagesByRecipientId입니다.');
   }
-
-  return { recentSendersProfile };
 }
 
 function PostId() {
-  const { id } = useParams();
+  const { id: recipientId } = useParams();
   const [recipient, setRecipient] = useState(initialDefault);
-  const { name, recentMessages } = recipient;
-  const { recentSendersProfile } = getSendersProfile(recentMessages);
-  console.log(recentSendersProfile);
+  const [messages, setMessages] = useState();
+  const [nextCursor, setNextCursor] = useState(null);
+  const { name, recentMessages, topReactions, messageCount, reactionCount } = recipient;
+  console.log(messageCount, reactionCount);
 
-  console.log(recipient);
+  const handleLoadMessageMore = async () => {
+    const nextMessages = await getMessagesByNextCursor(nextCursor);
+    console.log(nextMessages);
+    setMessages(prevMessages => [...prevMessages, ...nextMessages.results]);
+  };
+
   const handleLoad = async postId => {
-    const result = await getRecipientById(postId);
-    setRecipient(result);
+    const results = await Promise.all([
+      getRecipientById(postId),
+      getMessagesByRecipientId({
+        recipientId: postId,
+        offset: 0,
+        limit: 5,
+      }),
+    ]);
+    console.log(results);
+    setRecipient(() => results[0]);
+    setMessages(() => results[1].results);
+    setNextCursor(() => results[1].next);
   };
 
   useEffect(() => {
-    handleLoad(id);
-  }, [id]);
+    handleLoad(recipientId);
+  }, [recipientId]);
 
   return (
     <main>
       <div>
         <div>
           <Receiver>To. {name}</Receiver>
-        </div>
-        <div>
-          <div>plus</div>
-          {recentMessages.map(message => (
-            <img key={message.id} src={message.profileImageURL} alt="profile" />
+          {recentMessages?.map(message => (
+            <li key={message.id + message.sender}>
+              <img width={12} height={12} src={message.profileImageURL} alt="recent messages profile" />
+            </li>
+          ))}
+          {topReactions?.map(reaction => (
+            <span key={reaction.id}>{reaction.emoji}</span>
           ))}
         </div>
+        <ul>
+          <li>plus</li>
+          {messages?.map(message => {
+            const { id, profileImageURL } = message;
+            return (
+              <li key={id}>
+                <img width={200} height={200} src={profileImageURL} alt="total message profile" />
+              </li>
+            );
+          })}
+        </ul>
+        <div onClick={handleLoadMessageMore}>target</div>
       </div>
     </main>
   );
