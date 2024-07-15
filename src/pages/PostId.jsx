@@ -1,65 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getRecipientById, getMessagesByRecipientId } from 'api';
 import { useParams } from 'react-router-dom';
 import { Receiver } from 'styles/styled/PostId';
 import axios from 'axios';
 
-const initialDefault = {
-  name: '',
-  recentMessages: [{ id: 1, profileImageURLs: 'https://avatars.githubusercontent.com/u/170175553?v=4' }],
-};
+const throttle = (callback, throttleTime = 300) => {
+  let timer;
 
-async function getMessagesByNextCursor(nextCursor) {
-  if (!nextCursor) return undefined;
-  try {
-    const result = await axios.get(nextCursor);
-    return result;
-  } catch (err) {
-    throw new Error('잘못 요청된 getMessagesByRecipientId입니다.');
-  }
-}
+  return (...argv) => {
+    if (timer) return;
+    timer = setTimeout(() => {
+      callback(...argv);
+      timer = null;
+    }, throttleTime);
+  };
+};
 
 function PostId() {
   const { id: recipientId } = useParams();
-  const [recipient, setRecipient] = useState(initialDefault);
-  const [messages, setMessages] = useState();
+  const [recipient, setRecipient] = useState({});
+  const [messages, setMessages] = useState(null);
   const [nextCursor, setNextCursor] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { name, recentMessages, topReactions } = recipient;
-  console.log(isFetching, nextCursor);
 
-  const handleLoadMessageMore = async () => {
-    const { data } = await getMessagesByNextCursor(nextCursor);
-
-    if (data) {
-      setMessages(prevMessages => [...prevMessages, ...data.results]);
-      setNextCursor(data.next);
-    } else {
-      setMessages(() => []);
-      setNextCursor(null);
-    }
-    setIsFetching(false);
-  };
+  const fetchMessageMore = useCallback(async () => {
+    const { data } = await axios.get(nextCursor);
+    setMessages(prev => prev.concat(data.results));
+    setNextCursor(data.next);
+    setIsLoading(false);
+  }, [nextCursor]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const { scrollTop, offsetHeight } = document.documentElement;
       if (window.innerHeight + scrollTop >= offsetHeight) {
-        setIsFetching(true);
+        setIsLoading(true);
       }
-    };
-    setIsFetching(true);
+    }, 300);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isFetching && nextCursor) handleLoadMessageMore();
-    else if (!nextCursor) setIsFetching(false);
-  }, [isFetching]);
+    if (isLoading && nextCursor) fetchMessageMore();
+  }, [isLoading, nextCursor, fetchMessageMore]);
 
   useEffect(() => {
     const handleLoad = async () => {
+      setIsLoading(true);
       const results = await Promise.all([
         getRecipientById(recipientId),
         getMessagesByRecipientId({
@@ -71,6 +60,7 @@ function PostId() {
       setRecipient(() => results[0]);
       setMessages(() => results[1].results);
       setNextCursor(() => results[1].next);
+      setIsLoading(false);
     };
 
     handleLoad();
@@ -102,7 +92,7 @@ function PostId() {
           })}
         </ul>
 
-        <button type="button" onClick={handleLoadMessageMore}>
+        <button disabled={isLoading} type="button" onClick={fetchMessageMore}>
           더 보기
         </button>
       </div>
