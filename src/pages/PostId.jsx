@@ -1,20 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getRecipientById, getMessagesByRecipientId } from 'api';
 import { useParams } from 'react-router-dom';
 import { Receiver } from 'styles/styled/PostId';
 import axios from 'axios';
-
-const throttle = (callback, throttleTime = 300) => {
-  let timer;
-
-  return (...argv) => {
-    if (timer) return;
-    timer = setTimeout(() => {
-      callback(...argv);
-      timer = null;
-    }, throttleTime);
-  };
-};
 
 function PostId() {
   const { id: recipientId } = useParams();
@@ -22,6 +10,7 @@ function PostId() {
   const [messages, setMessages] = useState(null);
   const [nextCursor, setNextCursor] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const target = useRef();
   const { name, recentMessages, topReactions } = recipient;
 
   const fetchMessageMore = useCallback(async () => {
@@ -32,14 +21,22 @@ function PostId() {
   }, [nextCursor]);
 
   useEffect(() => {
-    const handleScroll = throttle(() => {
-      const { scrollTop, offsetHeight } = document.documentElement;
-      if (window.innerHeight + scrollTop >= offsetHeight) {
-        setIsLoading(true);
+    const { current } = target;
+    const handleObserve = entries => {
+      const { isIntersecting } = entries[0];
+      if (isIntersecting) setIsLoading(true);
+    };
+    const observer = new IntersectionObserver(handleObserve);
+
+    if (current) {
+      observer.observe(current);
+    }
+
+    return () => {
+      if (current) {
+        observer.unobserve(current);
       }
-    }, 300);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -92,7 +89,7 @@ function PostId() {
           })}
         </ul>
 
-        <button disabled={isLoading} type="button" onClick={fetchMessageMore}>
+        <button ref={target} style={{ visibility: 'hidden', height: '0px' }} type="button" onClick={fetchMessageMore}>
           더 보기
         </button>
       </div>
