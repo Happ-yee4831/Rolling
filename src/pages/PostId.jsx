@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getRecipientById, getMessagesByRecipientId } from 'api';
 import { useParams } from 'react-router-dom';
-import { Container, Receiver, RecipientSummary } from 'styles/styled/PostId';
+import { Container, Receiver, RecipientSummary, VerticalDivider } from 'styles/styled/PostId';
 import axios from 'axios';
 import SendersProfile from 'components/SendersProfile';
 
@@ -51,7 +51,7 @@ function PostId() {
         getMessagesByRecipientId({
           recipientId,
           offset: 0,
-          limit: 5,
+          limit: 12,
         }),
       ]);
       setRecipient(() => results[0]);
@@ -68,6 +68,8 @@ function PostId() {
       <RecipientSummary>
         <Receiver>To. {name}</Receiver>
         <SendersProfile messages={recentMessages} count={messageCount} />
+        <VerticalDivider height={28} marginX={28} />
+        <Reactions reactions={topReactions} />
         {topReactions?.map(reaction => (
           <span key={reaction.id}>{reaction.emoji}</span>
         ))}

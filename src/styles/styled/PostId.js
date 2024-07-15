@@ -9,6 +9,7 @@ export const RecipientSummary = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 13px auto;
 `;
 
 export const Receiver = styled.h1`
@@ -76,4 +77,11 @@ export const TotalSenders = styled.p`
     line-height: 27px;
     text-align: left;
   }
+`;
+
+export const VerticalDivider = styled.div`
+  border: 1px solid ${({ theme }) => theme.color.grayBorder};
+  height: ${({ height }) => `${height}px`};
+  margin-left: ${({ marginX, marginLeft }) => `${marginX ?? marginLeft}px`};
+  margin-right: ${({ marginX, marginRight }) => `${marginX ?? marginRight}px`};
 `;

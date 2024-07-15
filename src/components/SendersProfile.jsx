@@ -1,14 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Profile, RecentSenders, Sender, TotalSenders } from 'styles/styled/PostId';
 
 const Wrapper = styled.div`
   position: relative;
-  &::after {
-    position: absolute;
-    border: 1px solid;
-    right: -28px;
-    height: 80%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
 `;
 
 function SendersProfile({ messages, count }) {
