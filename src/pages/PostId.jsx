@@ -9,10 +9,11 @@ const initialDefault = {
   recentMessages: [{ id: 1, profileImageURLs: 'https://avatars.githubusercontent.com/u/170175553?v=4' }],
 };
 
-export async function getMessagesByNextCursor(nextCursor) {
+async function getMessagesByNextCursor(nextCursor) {
+  if (!nextCursor) return undefined;
   try {
     const result = await axios.get(nextCursor);
-    return result.data;
+    return result;
   } catch (err) {
     throw new Error('잘못 요청된 getMessagesByRecipientId입니다.');
   }
@@ -23,32 +24,56 @@ function PostId() {
   const [recipient, setRecipient] = useState(initialDefault);
   const [messages, setMessages] = useState();
   const [nextCursor, setNextCursor] = useState(null);
-  const { name, recentMessages, topReactions, messageCount, reactionCount } = recipient;
-  console.log(messageCount, reactionCount);
+  const [isFetching, setIsFetching] = useState(false);
+  const { name, recentMessages, topReactions } = recipient;
+  console.log(isFetching, nextCursor);
 
   const handleLoadMessageMore = async () => {
-    const nextMessages = await getMessagesByNextCursor(nextCursor);
-    console.log(nextMessages);
-    setMessages(prevMessages => [...prevMessages, ...nextMessages.results]);
-  };
+    const { data } = await getMessagesByNextCursor(nextCursor);
 
-  const handleLoad = async postId => {
-    const results = await Promise.all([
-      getRecipientById(postId),
-      getMessagesByRecipientId({
-        recipientId: postId,
-        offset: 0,
-        limit: 5,
-      }),
-    ]);
-    console.log(results);
-    setRecipient(() => results[0]);
-    setMessages(() => results[1].results);
-    setNextCursor(() => results[1].next);
+    if (data) {
+      setMessages(prevMessages => [...prevMessages, ...data.results]);
+      setNextCursor(data.next);
+    } else {
+      setMessages(() => []);
+      setNextCursor(null);
+    }
+    setIsFetching(false);
   };
 
   useEffect(() => {
-    handleLoad(recipientId);
+    const handleScroll = () => {
+      const { scrollTop, offsetHeight } = document.documentElement;
+      if (window.innerHeight + scrollTop >= offsetHeight) {
+        setIsFetching(true);
+      }
+    };
+    setIsFetching(true);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (isFetching && nextCursor) handleLoadMessageMore();
+    else if (!nextCursor) setIsFetching(false);
+  }, [isFetching]);
+
+  useEffect(() => {
+    const handleLoad = async () => {
+      const results = await Promise.all([
+        getRecipientById(recipientId),
+        getMessagesByRecipientId({
+          recipientId,
+          offset: 0,
+          limit: 5,
+        }),
+      ]);
+      setRecipient(() => results[0]);
+      setMessages(() => results[1].results);
+      setNextCursor(() => results[1].next);
+    };
+
+    handleLoad();
   }, [recipientId]);
 
   return (
@@ -76,7 +101,10 @@ function PostId() {
             );
           })}
         </ul>
-        <div onClick={handleLoadMessageMore}>target</div>
+
+        <button type="button" onClick={handleLoadMessageMore}>
+          더 보기
+        </button>
       </div>
     </main>
   );

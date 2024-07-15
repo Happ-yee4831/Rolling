@@ -13,7 +13,6 @@ export async function getRecipientById(id) {
 
 export async function getMessagesByRecipientId({ recipientId, offset = 0, limit = 6 }) {
   const query = `limit=${limit}&offset=${offset}`;
-  console.log(`${BASE_URL}/recipients/${recipientId}/messages/?${query}`);
   try {
     const result = await axios.get(`${BASE_URL}/recipients/${recipientId}/messages/?${query}`);
     return result.data;
