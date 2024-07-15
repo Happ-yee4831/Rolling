@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { getRecipientById, getMessagesByRecipientId } from 'api';
 import { useParams } from 'react-router-dom';
-import { Receiver } from 'styles/styled/PostId';
+import { Container, Receiver, RecipientSummary } from 'styles/styled/PostId';
 import axios from 'axios';
+import SendersProfile from 'components/SendersProfile';
 
 function PostId() {
   const { id: recipientId } = useParams();
@@ -11,7 +12,8 @@ function PostId() {
   const [nextCursor, setNextCursor] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const target = useRef();
-  const { name, recentMessages, topReactions } = recipient;
+  const { name, recentMessages, topReactions, messageCount } = recipient;
+  console.log(recipient);
 
   const fetchMessageMore = useCallback(async () => {
     const { data } = await axios.get(nextCursor);
@@ -27,11 +29,9 @@ function PostId() {
       if (isIntersecting) setIsLoading(true);
     };
     const observer = new IntersectionObserver(handleObserve);
-
     if (current) {
       observer.observe(current);
     }
-
     return () => {
       if (current) {
         observer.unobserve(current);
@@ -64,36 +64,30 @@ function PostId() {
   }, [recipientId]);
 
   return (
-    <main>
-      <div>
-        <div>
-          <Receiver>To. {name}</Receiver>
-          {recentMessages?.map(message => (
-            <li key={message.id + message.sender}>
-              <img width={12} height={12} src={message.profileImageURL} alt="recent messages profile" />
+    <Container>
+      <RecipientSummary>
+        <Receiver>To. {name}</Receiver>
+        <SendersProfile messages={recentMessages} count={messageCount} />
+        {topReactions?.map(reaction => (
+          <span key={reaction.id}>{reaction.emoji}</span>
+        ))}
+      </RecipientSummary>
+      <ul>
+        <li>plus</li>
+        {messages?.map(message => {
+          const { id, profileImageURL } = message;
+          return (
+            <li key={id}>
+              <img width={200} height={200} src={profileImageURL} alt="total message profile" />
             </li>
-          ))}
-          {topReactions?.map(reaction => (
-            <span key={reaction.id}>{reaction.emoji}</span>
-          ))}
-        </div>
-        <ul>
-          <li>plus</li>
-          {messages?.map(message => {
-            const { id, profileImageURL } = message;
-            return (
-              <li key={id}>
-                <img width={200} height={200} src={profileImageURL} alt="total message profile" />
-              </li>
-            );
-          })}
-        </ul>
+          );
+        })}
+      </ul>
 
-        <button ref={target} style={{ visibility: 'hidden', height: '0px' }} type="button" onClick={fetchMessageMore}>
-          더 보기
-        </button>
-      </div>
-    </main>
+      <button ref={target} style={{ visibility: 'hidden', height: '0px' }} type="button" onClick={fetchMessageMore}>
+        더 보기
+      </button>
+    </Container>
   );
 }
 
