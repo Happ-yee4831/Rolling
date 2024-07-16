@@ -1,10 +1,63 @@
 .paperList {
-  display: flex;
+  display: inline-flex;
+  position: relative;
   gap: 20px;
-}
 
-.rollingPaper {
-  background-color: brown;
-  width: 275px;
-  height: 260px;
+  .rollingPaper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: brown;
+    width: 275px;
+    height: 260px;
+    padding: 30px 24px 20px;
+
+    .writer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: -0.01em;
+
+      p {
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: -0.01em;
+      }
+
+      span {
+        font-weight: normal;
+      }
+    }
+
+    ol {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      padding-top: 16px;
+      display: flex;
+      gap: 8px;
+
+      li {
+        height: 36px;
+      }
+    }
+  }
+
+  .leftArrow,
+  .rightArrow {
+    position: absolute;
+    top: 50%;
+  }
+
+  .leftArrow {
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .rightArrow {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
 }
