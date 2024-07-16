@@ -5,6 +5,7 @@ import { Container, Receiver, RecipientSummary, VerticalDivider } from 'styles/s
 import axios from 'axios';
 import SendersProfile from 'components/SendersProfile';
 import Reactions from 'components/Reactions';
+import Shared from 'components/Shared';
 
 function PostId() {
   const { id: recipientId } = useParams();
@@ -71,6 +72,8 @@ function PostId() {
         <SendersProfile messages={recentMessages} count={messageCount} />
         <VerticalDivider height={28} marginX={28} />
         <Reactions reactions={topReactions} />
+        <VerticalDivider height={28} marginX={13} />
+        <Shared />
       </RecipientSummary>
       <ul>
         <li>plus</li>

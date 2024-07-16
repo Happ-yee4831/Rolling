@@ -9,6 +9,7 @@ const color = {
   gray800: '#2b2b2b',
   gray900: '#181818',
   grayBorder: '#ededed',
+  blue200: '#B1E4FF',
 };
 
 const backgroundColor = {
