@@ -4,8 +4,14 @@
   background: #f6f8ff;
 }
 
-.content-point {
+.section1 {
+  top: 60px;
+  left: 60px;
+}
+
+.Point {
   padding: 6px 12px 6px 12px;
+  gap: 10px;
   border-radius: 50px;
   background: #9935ff;
 
@@ -22,20 +28,22 @@
   margin-top: 8px;
 }
 
-.bold-text {
+.Bold-text {
   font-size: 24px;
   font-weight: 700;
   line-height: 36px;
 
+  display: block;
   padding-top: 16px;
 }
 
-.plain-text {
+.Plain-text {
   font-size: 18px;
   font-weight: 400;
   color: #555555;
   line-height: 28px;
 
+  display: block;
   padding-top: 8px;
 }
 
