@@ -34,6 +34,7 @@ function _Home() {
           <span className="Plain-text">롤링 페이퍼에 이모지를 추가할 수 있어요.</span>
         </div>
       </div>
+
       <div className="buttonContainer">
         <button className="button" type="button" aria-label="구경해보기">
           구경해보기

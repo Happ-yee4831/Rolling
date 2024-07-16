@@ -17,11 +17,6 @@
   color: #ffffff;
 }
 
-.LetterContainer {
-  height: 108px;
-  margin-top: 8px;
-}
-
 .bold-text {
   font-size: 24px;
   font-weight: 700;
@@ -39,19 +34,16 @@
   padding-top: 8px;
 }
 
-.MainSecondContainer {
-  margin-top: 30px;
-  padding: 60px 192px 60px 125px;
+.row-content2 {
+  padding: 60px 40px 60px 125px;
   border-radius: 16px;
   background: #f6f8ff;
-
-  display: flex;
-  justify-content: space-between;
 }
 
-.buttonContainer {
+.col-content3 {
   display: flex;
   justify-content: center;
+
   padding-top: 24px;
   margin-top: 24px;
 }
@@ -70,9 +62,9 @@
   color: #ffffff;
 }
 
-.MainPage-Card {
-  /* width: 205.43px; */
-  /* height: 161.98px; */
+/* .MainPage-Card {
+  width: 205.43px;
+  height: 161.98px;
   padding: 18.57px 12.03px 14.66px;
 
   border-radius: 11.85px;
@@ -133,7 +125,7 @@
 }
 
 .Line-MainPage-Card {
-  /* width: 179.85px; */
+  width: 179.85px;
   height: 0.99px;
 
   background: #e1e1e1;
@@ -165,4 +157,4 @@
 
 .plusForm {
   border: 0.99px solid #00000066;
-}
+} */
