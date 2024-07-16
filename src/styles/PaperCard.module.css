@@ -1,0 +1,66 @@
+.rollingPaper {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 208px;
+  height: 232px;
+  padding: 30px 22px 20px 24px;
+
+  .writer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.005em;
+
+      span {
+        font-weight: normal;
+      }
+    }
+  }
+
+  .emoji {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    padding-top: 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  @media (min-width: 768px) {
+    width: 275px;
+    height: 260px;
+    padding-left: 24px;
+
+    .writer {
+      gap: 12px;
+      font-size: 24px;
+      line-height: 36px;
+
+      p {
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    .emoji {
+      gap: 8px;
+    }
+  }
+
+  @media (min-width: 1248px) {
+    .writer {
+      gap: 12px;
+    }
+  }
+}

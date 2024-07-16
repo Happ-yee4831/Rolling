@@ -1,20 +1,59 @@
-body {
+body > div {
   background-color: var(--purple300);
   --header-height: 64px;
 
-  main {
-    margin: auto;
-    padding: 64px 24px;
-    max-width: 1248px;
-    background-color: var(--blue200);
+  > :where(header, main, footer) {
+    padding: 0 20px;
+
+    @media (min-width: 768px) {
+      padding: 0 24px;
+    }
   }
 
   .Temporary {
+    background-color: var(--orange200);
     position: fixed;
     top: 0;
     width: 100%;
-    height: 64px;
-    background-color: var(--orange200);
+    height: var(--header-height);
     border-bottom: 1px solid #ededed;
+  }
+
+  main {
+    background-color: var(--blue200);
+    margin: auto;
+    max-width: 1248px;
+    padding-top: var(--header-height);
+  }
+
+  > footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding-bottom: 24px;
+
+    .postLink {
+      background-color: var(--purple600);
+      color: var(--white);
+      display: block;
+      border-radius: 12px;
+      padding: 14px 24px;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    @media (min-width: 1248px) {
+      position: static;
+      display: flex;
+      justify-content: center;
+
+      .postLink {
+        margin-top: 64px;
+        width: 280px;
+      }
+    }
   }
 }
