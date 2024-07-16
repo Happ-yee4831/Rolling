@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Receiver, RecipientSummary, VerticalDivider } from 'styles/styled/PostId';
 import axios from 'axios';
 import SendersProfile from 'components/SendersProfile';
+import Reactions from 'components/Reactions';
 
 function PostId() {
   const { id: recipientId } = useParams();
@@ -70,9 +71,6 @@ function PostId() {
         <SendersProfile messages={recentMessages} count={messageCount} />
         <VerticalDivider height={28} marginX={28} />
         <Reactions reactions={topReactions} />
-        {topReactions?.map(reaction => (
-          <span key={reaction.id}>{reaction.emoji}</span>
-        ))}
       </RecipientSummary>
       <ul>
         <li>plus</li>

@@ -11,8 +11,13 @@ const color = {
   grayBorder: '#ededed',
 };
 
+const backgroundColor = {
+  grayOpacity: '#0000008a',
+};
+
 const theme = {
   color,
+  backgroundColor,
 };
 
 export default theme;

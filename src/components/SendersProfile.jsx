@@ -1,14 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Profile, RecentSenders, Sender, TotalSenders } from 'styles/styled/PostId';
-
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 11px;
-`;
+import { Profile, RecentSenders, Sender, TotalSenders, Wrapper } from 'styles/styled/SendersProfile';
 
 function SendersProfile({ messages, count }) {
   return (
@@ -19,12 +10,14 @@ function SendersProfile({ messages, count }) {
             <Profile src={message.profileImageURL} alt="recent messages profile" />
           </Sender>
         ))}
-        <Sender>+{count - 3}</Sender>
+        {count && count > 3 && <Sender>+{count - 3}</Sender>}
       </RecentSenders>
-      <TotalSenders>
-        {count}
-        <span>명이 작성했어요!</span>
-      </TotalSenders>
+      {count && (
+        <TotalSenders>
+          {count}
+          <span>명이 작성했어요!</span>
+        </TotalSenders>
+      )}
     </Wrapper>
   );
 }
