@@ -28,7 +28,7 @@ function Reactions({ reactions }) {
       <Button type="button">
         <img width={24} height={24} src={DropDownArrow} alt="drop down" />
       </Button>
-      <BorderButton border type="button" onClick={handleDropDownEmojiMenu}>
+      <BorderButton type="button" onClick={handleDropDownEmojiMenu}>
         <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
         추가
       </BorderButton>
