@@ -6,19 +6,16 @@ import rorringList2 from '../assets/images/RorringList_2.png';
 function Home() {
   return (
     <div className="container">
-      <div className="row row-content mt-60">
+      <div className="row row-content">
         <div className="col">
-          <div className="row mb-16">
-            <div className="col">
+          <div className="row">
+            <div className="col mb-16">
               <span className="content-point">Point. 01</span>
             </div>
           </div>
-          <div className="row mb-8">
+          <div className="row">
             <div className="col">
-              <span className="bold-text">
-                누구나 손쉽게, 온라인 <br />
-                롤링 페이퍼를 만들 수 있어요
-              </span>
+              <span className="bold-text">누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요</span>
             </div>
           </div>
           <div className="row">
@@ -32,7 +29,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="row row-content2 mt-30 ">
+      <div className="row row-content mt-30 ">
         <div className="col-md-6 col-12 order-2 order-md-1">
           <img src={rorringList2} alt="Rorring2" />
         </div>
@@ -44,10 +41,7 @@ function Home() {
           </div>
           <div className="row mb-8">
             <div className="col">
-              <span className="bold-text">
-                서로에게 이모지로 감정을 <br />
-                표현해보세요
-              </span>
+              <span className="bold-text">서로에게 이모지로 감정을 표현해보세요</span>
             </div>
           </div>
           <div className="row ">
