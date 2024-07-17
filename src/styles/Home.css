@@ -77,12 +77,13 @@
 }
 
 /* Tablet */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
+    margin-top: 49px;
     margin-left: 24px;
     margin-right: 24px;
 
-    max-width: 720px;
+    max-width: 768px;
   }
 
   .row-content {
@@ -91,36 +92,75 @@
     background: #f6f8ff;
   }
 
+  .content-point {
+    padding: 6px 12px 6px 12px;
+    gap: 10px;
+    border-radius: 50px;
+    background: #9935ff;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .bold-text {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #181818;
+  }
+
+  .plain-text {
+    padding-top: 8px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #555555;
+  }
+
   .row-content2 .col:first-child {
     order: 2;
-    margin-top: 44px;
   }
 
   .row-content2 .col:last-child {
     order: 1;
   }
 
-  .button {
-    width: 100%;
-  }
-  .row-content img,
-  .row-content2 img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .img {
-    margin-top: 44px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 390px) {
   .row-content img {
     max-width: 100%;
     height: auto;
-    margin-top: 44px;
+    margin-top: 36px;
   }
+
+  .button {
+    margin-top: 48px;
+    margin-bottom: 24px;
+
+    width: 100%;
+    padding: 14px 24px 14px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #9935ff;
+
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+/* ----------------------------------------- */
+/* Mobile */
+@media (max-width: 390px) {
   .container {
     margin-top: 42px;
     margin-left: 24px;
@@ -175,6 +215,7 @@
     line-height: 28px;
     letter-spacing: -0.01em;
     text-align: left;
+    color: #181818;
   }
 
   .plain-text {
@@ -185,6 +226,7 @@
     line-height: 22px;
     letter-spacing: -0.01em;
     text-align: left;
+    color: #555555;
   }
 
   .row-content2 .col:first-child {
@@ -193,6 +235,12 @@
 
   .row-content2 .col:last-child {
     order: 1;
+  }
+
+  .row-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 44px;
   }
 
   .button {
