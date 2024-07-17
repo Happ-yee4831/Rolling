@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+import '../styles/Home.css';
 import rorringList1 from '../assets/images/RorringList_1.svg';
 import rorringList2 from '../assets/images/RorringList_2.png';
 
@@ -27,16 +27,16 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="col">
+        <div className="col-md-6 col-12">
           <img src={rorringList1} alt="Rorring1" />
         </div>
       </div>
 
       <div className="row row-content2 mt-30 ">
-        <div className="col">
+        <div className="col-md-6 col-12 order-2 order-md-1">
           <img src={rorringList2} alt="Rorring2" />
         </div>
-        <div className="col ">
+        <div className="col-md-6 col-12 order-1 order-md-2">
           <div className="row mb-16">
             <div className="col">
               <span className="content-point">Point. 02</span>
