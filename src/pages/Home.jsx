@@ -15,7 +15,7 @@ function Home() {
           </div>
           <div className="row">
             <div className="col">
-              <span className="bold-text">누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요</span>
+              <p className="bold-text">누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요</p>
             </div>
           </div>
           <div className="row">
@@ -24,7 +24,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="col-md-6 col-12">
+        <div className="col">
           <img src={rorringList1} alt="Rorring1" />
         </div>
       </div>
