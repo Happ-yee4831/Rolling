@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import 'styles/toast.scss';
+import CloseImage from 'assets/images/close@2x.png';
+import SuccessImage from 'assets/images/completed@2x.png';
+import { ToastClose, ToastContainer, ToastImage, ToastMessage } from 'styles/styled/Toast';
 
 function Toast({ message, open, setOpen }) {
-  const toastClassName = () => {
-    if (open) return 'toast-open toast-active';
-    return 'toast-close';
-  };
-
   const removeToast = () => {
     setOpen(false);
   };
@@ -14,7 +12,7 @@ function Toast({ message, open, setOpen }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(false);
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearTimeout(timer);
@@ -22,12 +20,13 @@ function Toast({ message, open, setOpen }) {
   }, [open, setOpen]);
 
   return (
-    <div className={`toast ${toastClassName()}`}>
-      {message}
-      <button type="button" onClick={removeToast}>
-        X
-      </button>
-    </div>
+    <ToastContainer open={open}>
+      <ToastImage src={SuccessImage} alt="toast Success" />
+      <ToastMessage>{message}</ToastMessage>
+      <ToastClose onClick={removeToast}>
+        <ToastImage src={CloseImage} alt="toast close" />
+      </ToastClose>
+    </ToastContainer>
   );
 }
 

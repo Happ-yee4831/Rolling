@@ -9,6 +9,7 @@ import PostIdEdit from 'pages/PostIdEdit';
 import PostIdMessage from 'pages/PostIdMessage';
 import { ThemeProvider } from 'styled-components';
 import theme from 'styles/styled/theme';
+import PostLayout from 'layouts/PostLayout';
 
 function Router() {
   return (
@@ -21,10 +22,14 @@ function Router() {
             <Route path="post">
               <Route index element={<Post />} />
               <Route path=":id">
-                <Route index element={<PostId />} />
-                <Route path="edit" element={<PostIdEdit />} />
                 <Route path="message" element={<PostIdMessage />} />
               </Route>
+            </Route>
+          </Route>
+          <Route path="/post" element={<PostLayout />}>
+            <Route path=":id">
+              <Route index element={<PostId />} />
+              <Route path="edit" element={<PostIdEdit />} />
             </Route>
           </Route>
         </Routes>

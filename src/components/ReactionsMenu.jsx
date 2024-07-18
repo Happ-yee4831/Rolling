@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DropDownArrow from 'assets/images/arrow_down@2x.png';
 import EmojiAdd from 'assets/images/add-24@2x.png';
 import EmojiPicker from 'emoji-picker-react';
 import axios from 'axios';
 import { ReactionsList, Button, Count, BorderButton, Emoji, RelativeWrapper, ReactionItem } from 'styles/styled/PostId';
+import { RecipientHeaderContext } from 'contexts/RecipientHeaderProvider';
 
 async function fetchReactionsByRecipientId(id) {
   try {
@@ -22,18 +23,8 @@ const EmojiPickerStyles = {
 
 function ReactionsMenu({ topReactions, id }) {
   const [reactions, setReactions] = useState([]);
-  const [isOpenReactions, setIsOpenReactions] = useState(false);
-  const [emojiPickerOpen, setEmojiPickerOpen] = useState(false);
-
-  const handleToggleEmojiPicker = () => {
-    if (isOpenReactions === true) setIsOpenReactions(() => false);
-    setEmojiPickerOpen(p => !p);
-  };
-
-  const handleToggleReactions = () => {
-    if (emojiPickerOpen === true) setEmojiPickerOpen(() => false);
-    setIsOpenReactions(p => !p);
-  };
+  const { dropdowns, handleDropdownToggle } = useContext(RecipientHeaderContext);
+  const { isReactionsOpen, isEmojiPickerOpen } = dropdowns;
 
   useEffect(() => {
     const handleLoad = async () => {
@@ -51,14 +42,14 @@ function ReactionsMenu({ topReactions, id }) {
           <Count>{top.count}</Count>
         </ReactionItem>
       ))}
-      <Button type="button" onClick={handleToggleReactions}>
+      <Button type="button" onClick={() => handleDropdownToggle('isReactionsOpen')}>
         <img width={24} height={24} src={DropDownArrow} alt="drop down" />
       </Button>
-      <BorderButton type="button" onClick={handleToggleEmojiPicker}>
+      <BorderButton type="button" onClick={() => handleDropdownToggle('isEmojiPickerOpen')}>
         <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
         추가
       </BorderButton>
-      {isOpenReactions && (
+      {isReactionsOpen && (
         <ReactionsList>
           {reactions.map(reaction => (
             <ReactionItem key={reaction.id}>
@@ -68,7 +59,7 @@ function ReactionsMenu({ topReactions, id }) {
           ))}
         </ReactionsList>
       )}
-      <EmojiPicker style={EmojiPickerStyles} onEmojiClick={e => console.log(e)} open={emojiPickerOpen} />
+      <EmojiPicker style={EmojiPickerStyles} onEmojiClick={e => console.log(e)} open={isEmojiPickerOpen} />
     </RelativeWrapper>
   );
 }

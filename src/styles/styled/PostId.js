@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { Font16Regular } from './Toast';
+import media from './media';
 
 const relationShipColors = {
   친구: css`
@@ -29,14 +31,16 @@ export const Background = styled.div`
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
+  ${media.tablet`
+		
+	`}
 `;
 
 export const RecipientSummary = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  padding: 13px 0;
+  padding: 13px 24px;
   background-color: white;
 `;
 
@@ -71,23 +75,34 @@ export const HorizontalDivider = styled.div`
 
 export const MessageList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 384px);
+  grid-auto-rows: 280px;
+  justify-content: center;
   gap: 24px;
   margin: 114px auto 0;
   padding-bottom: 246px;
+  ${media.tablet`
+		grid-template-columns: repeat(2, 352px);
+		grid-auto-rows: 284px;
+	`}
+  ${media.mobile`
+		grid-template-columns: repeat(1, 320px);
+		grid-auto-rows: 230px;
+	`}
 `;
 
 export const MessageCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  width: 384px;
-  height: 280px;
   padding: 28px 24px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0px 2px 12px 0px #00000014;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 2px 12px 0px #00000060;
+  }
 `;
 
 export const SendMessageCard = styled(MessageCard)`
@@ -168,19 +183,40 @@ export const ModalClose = styled.button`
   align-self: center;
 `;
 
-export const ReactionsList = styled.ul`
+export const DropDownList = styled.ul`
   position: absolute;
+  border-radius: 8px;
+  border: 1px solid #b6b6b6;
+  background-color: white;
+  box-shadow: 0px 2px 12px 0px #00000014;
+`;
+
+export const SharedList = styled(DropDownList)`
+  top: 48px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+`;
+
+export const SharedItem = styled.li`
+  ${Font16Regular}
+  width: 140px;
+  padding: 12px 16px;
+  &:hover {
+    background-color: ${({ theme }) => theme.color.gray200};
+  }
+`;
+
+export const ReactionsList = styled(DropDownList)`
   top: 48px;
   right: 100px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: Hug (312px) px;
-  height: Hug (134px) px;
   padding: 24px;
   gap: 10px;
-  border-radius: 8px;
-  border: 1px solid #b6b6b6;
-  background-color: white;
 `;
 
 export const RelativeWrapper = styled.ul`
@@ -227,26 +263,4 @@ export const BorderButton = styled(Button)`
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-`;
-
-export const DropDownItem = styled.li``;
-
-export const DropDownMenu = styled.ul`
-  position: absolute;
-  top: 48px;
-  right: 0px;
-  padding: 10px 0;
-  border-radius: 8px;
-  border: ${({ theme }) => `1px solid ${theme.color.gray300}`};
-  ${DropDownItem} {
-    display: flex;
-    align-items: center;
-    width: 106px;
-    height: 26px;
-    padding: 12px 16px;
-    opacity: 0px;
-    &:hover {
-      background-color: ${({ theme }) => theme.color.gray200};
-    }
-  }
 `;

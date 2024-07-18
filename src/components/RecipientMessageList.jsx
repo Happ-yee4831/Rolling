@@ -8,7 +8,7 @@ import { createPortal } from 'react-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
 
-function RecipientMessageList({ recipientId }) {
+function RecipientMessageList({ id }) {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [nextCursor, setNextCursor] = useState(null);
@@ -53,7 +53,7 @@ function RecipientMessageList({ recipientId }) {
   useEffect(() => {
     const handleLoad = async () => {
       const data = await getMessagesByRecipientId({
-        recipientId,
+        recipientId: id,
         offset: 0,
         limit: 5,
       });
@@ -62,7 +62,7 @@ function RecipientMessageList({ recipientId }) {
     };
 
     handleLoad();
-  }, [recipientId]);
+  }, [id]);
 
   const onModalOpen = message => {
     setModalMessage(message);
