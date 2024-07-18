@@ -28,7 +28,7 @@ function PostId() {
           <Receiver>To. {name}</Receiver>
           <SendersProfile messages={recentMessages} count={messageCount} />
           <VerticalDivider $height={28} $marginX={28} />
-          <Reactions id={recipientId} reactions={topReactions} />
+          <Reactions id={recipientId} topReactions={topReactions} />
           <VerticalDivider $height={28} $marginX={13} />
           <Shared />
         </RecipientSummary>

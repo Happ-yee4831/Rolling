@@ -5,7 +5,6 @@ import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
 import { createPortal } from 'react-dom';
-import { useLocation } from 'react-router-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
 
@@ -15,7 +14,6 @@ function RecipientMessageList({ recipientId }) {
   const [nextCursor, setNextCursor] = useState(null);
   const [modalMessage, setModalMessage] = useState(null);
   const target = useRef();
-  const { pathname } = useLocation();
 
   const fetchMessages = useCallback(async () => {
     const urlInfo = getUrlInfo(nextCursor);

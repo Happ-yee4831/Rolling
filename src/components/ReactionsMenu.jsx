@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Count, BorderButton, Emoji, RelativeWrapper, TopReaction } from 'styles/styled/Reactions';
 import DropDownArrow from 'assets/images/arrow_down@2x.png';
 import EmojiAdd from 'assets/images/add-24@2x.png';
 import EmojiPicker from 'emoji-picker-react';
 import axios from 'axios';
+import { ReactionsList, Button, Count, BorderButton, Emoji, RelativeWrapper, ReactionItem } from 'styles/styled/PostId';
 
 async function fetchReactionsByRecipientId(id) {
   try {
@@ -21,16 +21,24 @@ const EmojiPickerStyles = {
 };
 
 function ReactionsMenu({ topReactions, id }) {
+  const [reactions, setReactions] = useState([]);
+  const [isOpenReactions, setIsOpenReactions] = useState(false);
   const [emojiPickerOpen, setEmojiPickerOpen] = useState(false);
 
   const handleToggleEmojiPicker = () => {
+    if (isOpenReactions === true) setIsOpenReactions(() => false);
     setEmojiPickerOpen(p => !p);
+  };
+
+  const handleToggleReactions = () => {
+    if (emojiPickerOpen === true) setEmojiPickerOpen(() => false);
+    setIsOpenReactions(p => !p);
   };
 
   useEffect(() => {
     const handleLoad = async () => {
       const data = await fetchReactionsByRecipientId(id);
-      return data;
+      setReactions(() => data.results);
     };
     handleLoad();
   }, [id]);
@@ -38,18 +46,28 @@ function ReactionsMenu({ topReactions, id }) {
   return (
     <RelativeWrapper>
       {topReactions?.map(top => (
-        <TopReaction key={top.id}>
+        <ReactionItem key={top.id}>
           <Emoji>{top.emoji}</Emoji>
           <Count>{top.count}</Count>
-        </TopReaction>
+        </ReactionItem>
       ))}
-      <Button type="button">
+      <Button type="button" onClick={handleToggleReactions}>
         <img width={24} height={24} src={DropDownArrow} alt="drop down" />
       </Button>
       <BorderButton type="button" onClick={handleToggleEmojiPicker}>
         <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
         추가
       </BorderButton>
+      {isOpenReactions && (
+        <ReactionsList>
+          {reactions.map(reaction => (
+            <ReactionItem key={reaction.id}>
+              <Emoji>{reaction.emoji}</Emoji>
+              <Count>{reaction.count}</Count>
+            </ReactionItem>
+          ))}
+        </ReactionsList>
+      )}
       <EmojiPicker style={EmojiPickerStyles} onEmojiClick={e => console.log(e)} open={emojiPickerOpen} />
     </RelativeWrapper>
   );
