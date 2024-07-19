@@ -78,27 +78,46 @@ function RecipientMessageList({ recipientId }) {
 
   return (
     <Container>
-      <MessageList>
-        <SendMessageCard>
-          <img width={56} height={56} src={PlusImage} alt="add Message" />
-        </SendMessageCard>
-        {messages?.map(message => {
-          if (isEdit) {
-            console.log(message);
-            return (
-              <RecipientMessage
-                onModal={onModalOpen}
-                key={message.id}
-                message={message}
-                isEdit={isEdit}
-                onClickTrashBtn={e => deleteMessage({ messageId: message.id })}
-              />
-            );
-          }
-          return <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />;
-        })}
-        <div ref={target} />
-      </MessageList>
+      <div>
+        <div style={{ textAlign: 'end' }}>
+          <button
+            type="button"
+            style={{
+              padding: '7px 17px',
+              borderRadius: '6px',
+              background: '#9935FF',
+              fontSize: '16px',
+              fontWeight: 400,
+              lineHeight: '26px',
+              letterSpacing: '-0.01em',
+              textAlign: 'center',
+              color: '#FFFFFF',
+            }}>
+            삭제하기
+          </button>
+        </div>
+        <MessageList>
+          <SendMessageCard>
+            <img width={56} height={56} src={PlusImage} alt="add Message" />
+          </SendMessageCard>
+          {messages?.map(message => {
+            if (isEdit) {
+              return (
+                <RecipientMessage
+                  onModal={onModalOpen}
+                  key={message.id}
+                  message={message}
+                  isEdit={isEdit}
+                  onClickTrashBtn={e => deleteMessage({ messageId: message.id })}
+                />
+              );
+            }
+            return <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />;
+          })}
+
+          <div ref={target} />
+        </MessageList>
+      </div>
       {createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
     </Container>
   );
