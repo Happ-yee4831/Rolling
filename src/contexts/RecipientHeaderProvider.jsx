@@ -13,7 +13,6 @@ function RecipientHeaderProvider({ children }) {
 
   const handleDropdownToggle = useCallback(
     clickedKey => {
-      console.log(clickedKey);
       let nextManageDropdowns = {};
       const isKeyTrue = dropdowns[clickedKey];
       if (isKeyTrue) nextManageDropdowns = initialDefault;

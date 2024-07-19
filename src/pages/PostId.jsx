@@ -9,7 +9,6 @@ function PostId() {
   const { id } = useParams();
   const [recipient, setRecipient] = useState({});
   const { backgroundColor } = recipient;
-  console.log(recipient);
 
   useEffect(() => {
     const handleLoad = async () => {
