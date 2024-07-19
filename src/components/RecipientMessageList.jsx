@@ -1,4 +1,4 @@
-import { deleteMessage, getMessagesByRecipientId } from 'api';
+import { deleteMessage, getMessagesByRecipientId, deleteRecipients } from 'api';
 import axios from 'axios';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
@@ -83,6 +83,7 @@ function RecipientMessageList({ recipientId }) {
           <div style={{ textAlign: 'end' }}>
             <button
               type="button"
+              onClick={() => deleteRecipients({ recipientId })}
               style={{
                 padding: '7px 17px',
                 borderRadius: '6px',

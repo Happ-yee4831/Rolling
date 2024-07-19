@@ -32,6 +32,15 @@ export async function deleteMessage({ messageId }) {
   }
 }
 
+export async function deleteRecipients({ recipientId }) {
+  try {
+    const result = await instance.delete(`/recipients/${recipientId}/`);
+    return result.data;
+  } catch (err) {
+    throw new Error('잘못 요청된 deleteRecipients.');
+  }
+}
+
 /*
 export async function postReactionByRecipientId(recipientId, params) {
   const result = await axios.post(``);
