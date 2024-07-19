@@ -18,7 +18,7 @@ const toastOutBottom = keyframes`
   }
 `;
 
-export const Font28Bold = css`
+export const font28Bold = css`
   font-family: Pretendard;
   font-size: 28px;
   font-weight: 700;
@@ -27,7 +27,7 @@ export const Font28Bold = css`
   text-align: left;
 `;
 
-export const Font16Regular = css`
+export const font16Regular = css`
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
@@ -65,7 +65,7 @@ export const ToastContainer = styled.div`
 
 export const ToastMessage = styled.span`
   flex-grow: 1;
-  ${Font16Regular}
+  ${font16Regular}
   color: white;
 `;
 

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Font16Regular } from './Toast';
+import { font16Regular } from './Toast';
 import media from './media';
 
 const fontFamily = {
@@ -49,14 +49,15 @@ export const Container = styled.div`
 `;
 
 export const RecipientSummary = styled(Container)`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 13px 24px;
   background-color: white;
   ${media.mobile`
-		flex-direction: column;
-		align-items: start;
+		justify-content: center;
+		align-items: center;
 		padding: 10px 20px;
 	`}
 `;
@@ -142,6 +143,7 @@ export const Flex = styled.div`
   margin-top: ${({ mt }) => `${mt}px`};
   padding-left: ${({ pl }) => `${pl}px`};
   flex-grow: ${({ $grow }) => $grow};
+  ${({ $width }) => $width && `width: ${$width}`}
 `;
 
 export const Relation = styled.span`
@@ -223,7 +225,7 @@ export const SharedList = styled(DropDownList)`
 `;
 
 export const SharedItem = styled.li`
-  ${Font16Regular}
+  ${font16Regular}
   width: 140px;
   padding: 12px 16px;
   &:hover {

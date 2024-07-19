@@ -38,7 +38,7 @@ function RecipientHeader({ recipient, id }) {
             </RecipientSummary>
             <HorizontalDivider $width="100%" />
             <RecipientSummary>
-              <Flex $content="space-between" $item="center">
+              <Flex $item="center">
                 <ReactionsMenu id={id} />
                 <VerticalDivider $height={28} $marginX={13} />
                 <Shared recipient={recipient} />
