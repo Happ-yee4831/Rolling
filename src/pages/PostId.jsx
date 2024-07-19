@@ -1,57 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
-import thumbEmoji from 'assets/images/thumb.png';
-import dummyRecipient from 'api/dummy/dummy';
+import React, { useEffect, useState } from 'react';
+import { getRecipientById } from 'api';
+import { useParams } from 'react-router-dom';
+import { Background, Receiver, RecipientSummary, VerticalDivider } from 'styles/styled/PostId';
+import SendersProfile from 'components/SendersProfile';
+import Reactions from 'components/ReactionsMenu';
+import Shared from 'components/Shared';
+import RecipientMessageList from 'components/RecipientMessageList';
 
 function PostId() {
-  const [recipient] = useState(dummyRecipient);
-  const [value, setValue] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const ref = useRef();
-  const { name, recentMessages } = recipient;
-
-  const handleChange = e => {
-    const nextValue = e.target.files[0];
-    console.log(nextValue);
-    setValue(nextValue);
-  };
+  const { id: recipientId } = useParams();
+  const [recipient, setRecipient] = useState({});
+  const { name, recentMessages, topReactions, messageCount, backgroundColor } = recipient;
 
   useEffect(() => {
-    if (!value) return undefined;
-
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
-
-    return () => {
-      setPreview(null);
-      URL.revokeObjectURL(nextPreview);
+    const handleLoad = async () => {
+      const result = await getRecipientById(recipientId);
+      setRecipient(() => result);
     };
-  }, [value]);
+
+    handleLoad();
+  }, [recipientId]);
 
   return (
-    <main>
-      <div>
-        <h1>To. {name}</h1>
-        <figure>
-          {recentMessages.map(message => (
-            <img key={message.id} src={message.profileImageURL} alt="profile" />
-          ))}
-        </figure>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <img src={preview} alt="preview" />
-        <input ref={ref} name="imgUrl" type="file" onChange={handleChange} />
-      </div>
-    </main>
+    <Background $backgroundColor={backgroundColor}>
+      <Background>
+        <RecipientSummary>
+          <Receiver>To. {name}</Receiver>
+          <SendersProfile messages={recentMessages} count={messageCount} />
+          <VerticalDivider $height={28} $marginX={28} />
+          <Reactions id={recipientId} reactions={topReactions} />
+          <VerticalDivider $height={28} $marginX={13} />
+          <Shared />
+        </RecipientSummary>
+      </Background>
+      <RecipientMessageList recipientId={recipientId} />
+    </Background>
   );
 }
 
