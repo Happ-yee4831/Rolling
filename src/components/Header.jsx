@@ -10,7 +10,7 @@ function Header() {
         <Link to="/">
           <img src={Logo} alt="logo" />
         </Link>
-        <Link to="post" path=" ">
+        <Link to="post" path="">
           롤링 페이퍼 만들기
         </Link>
       </header>
