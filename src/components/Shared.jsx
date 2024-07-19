@@ -3,9 +3,10 @@ import { createPortal } from 'react-dom';
 import { BorderButton, RelativeWrapper, SharedItem, SharedList } from 'styles/styled/PostId';
 import SharedImage from 'assets/images/share-24@2x.png';
 import { RecipientHeaderContext } from 'contexts/RecipientHeaderProvider';
+import shareKakao from 'utils/shareKakao';
 import Toast from './Toast';
 
-function Shared() {
+function Shared({ recipient }) {
   const [initToast, setInitToast] = useState(false);
   const [toast, setToast] = useState(true);
   const { dropdowns, handleDropdownToggle } = useContext(RecipientHeaderContext);
@@ -28,7 +29,7 @@ function Shared() {
       </BorderButton>
       {isSharedOpen && (
         <SharedList>
-          <SharedItem>카카오톡 공유</SharedItem>
+          <SharedItem onClick={() => shareKakao(window.location.href, recipient)}>카카오톡 공유</SharedItem>
           <SharedItem onClick={handleCopyClipBoard}>URL 공유</SharedItem>
         </SharedList>
       )}

@@ -46,9 +46,6 @@ export const Background = styled.div`
 export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  ${media.tablet`
-		
-	`}
 `;
 
 export const RecipientSummary = styled(Container)`
@@ -57,6 +54,11 @@ export const RecipientSummary = styled(Container)`
   align-items: center;
   padding: 13px 24px;
   background-color: white;
+  ${media.mobile`
+		flex-direction: column;
+		align-items: start;
+		padding: 10px 20px;
+	`}
 `;
 
 export const Receiver = styled.h1`
@@ -69,14 +71,16 @@ export const Receiver = styled.h1`
 `;
 
 export const VerticalDivider = styled.div`
-  border: 1px solid ${({ theme }) => theme.color.grayBorder};
+  width: 1px;
+  background-color: ${({ theme }) => theme.color.grayBorder};
   height: ${({ $height }) => `${$height}px`};
   margin-left: ${({ $marginX, $marginLeft }) => `${$marginX ?? $marginLeft}px`};
   margin-right: ${({ $marginX, $marginRight }) => `${$marginX ?? $marginRight}px`};
 `;
 
 export const HorizontalDivider = styled.div`
-  border: 1px solid ${({ theme }) => theme.color.grayBorder};
+  height: 1px;
+  background-color: ${({ theme }) => theme.color.grayBorder};
   width: ${({ $width }) => {
     if (!$width) return 0;
     if ($width.includes('%')) {
@@ -96,6 +100,7 @@ export const MessageList = styled.ul`
   gap: 24px;
   margin: 114px auto 0;
   padding-bottom: 246px;
+  min-height: 100vh;
   ${media.tablet`
 		grid-template-columns: repeat(2, 352px);
 		grid-auto-rows: 284px;
@@ -233,6 +238,13 @@ export const ReactionsList = styled(DropDownList)`
   grid-template-columns: repeat(4, 1fr);
   padding: 24px;
   gap: 10px;
+  ${media.tablet`
+		grid-template-columns: repeat(3, 1fr);
+	`}
+  ${media.mobile`
+		top: 48px;
+  	right: 0;
+	`}
 `;
 
 export const RelativeWrapper = styled.ul`
@@ -265,18 +277,24 @@ export const Count = styled.span`
 `;
 
 export const Button = styled.button`
-  border-radius: 6px;
-  padding: 6px;
-`;
-
-export const BorderButton = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 6px;
+  padding: 6px;
+  ${media.mobile`
+		padding: 0px;
+	`}
+`;
+
+export const BorderButton = styled(Button)`
   gap: 4px;
   border: ${({ theme }) => `1px solid ${theme.color.gray300}`};
   padding: 6px 16px;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+  ${media.mobile`
+		padding: 6px 8px;
+	`}
 `;
