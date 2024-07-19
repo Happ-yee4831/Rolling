@@ -2,6 +2,21 @@ import styled, { css } from 'styled-components';
 import { Font16Regular } from './Toast';
 import media from './media';
 
+const fontFamily = {
+  'Noto Sans': css`
+    font-family: 'Noto Sans Korean', 'Noto Sans';
+  `,
+  Pretendard: css`
+    font-family: Pretendard, 'Pretendard Variable';
+  `,
+  나눔명조: css`
+    font-family: 'Nanum Myeongjo';
+  `,
+  '나눔손글씨 손편지체': css`
+    font-family: Handletter;
+  `,
+};
+
 const relationShipColors = {
   친구: css`
     background-color: ${({ theme }) => theme.color.green100};
@@ -92,6 +107,7 @@ export const MessageList = styled.ul`
 `;
 
 export const MessageCard = styled.li`
+  ${({ font }) => fontFamily[font] ?? fontFamily['Noto Sans']}
   display: flex;
   flex-direction: column;
   justify-content: center;

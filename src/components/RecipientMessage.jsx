@@ -4,14 +4,14 @@ import { Profile } from 'styles/styled/SendersProfile';
 import getformatDate from 'utils/getformatDate';
 
 function RecipientMessage({ message, onModal }) {
-  const { profileImageURL, relationship, sender, content, createdAt } = message;
+  const { profileImageURL, relationship, sender, content, createdAt, font } = message;
 
   const handleModal = () => {
     onModal(message);
   };
 
   return (
-    <S.MessageCard onClick={handleModal}>
+    <S.MessageCard font={font} onClick={handleModal}>
       <S.Flex $gap={14} item="center">
         <Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
         <S.Flex $flex="column" $gap="6">
