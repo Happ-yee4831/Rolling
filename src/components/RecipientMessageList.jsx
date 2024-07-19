@@ -1,4 +1,4 @@
-import { getMessagesByRecipientId } from 'api';
+import { deleteMessage, getMessagesByRecipientId } from 'api';
 import axios from 'axios';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
@@ -84,13 +84,14 @@ function RecipientMessageList({ recipientId }) {
         </SendMessageCard>
         {messages?.map(message => {
           if (isEdit) {
+            console.log(message);
             return (
               <RecipientMessage
                 onModal={onModalOpen}
                 key={message.id}
                 message={message}
                 isEdit={isEdit}
-                onClickTrashBtn={e => console.log('onClickTrashBtn', e)}
+                onClickTrashBtn={e => deleteMessage({ messageId: message.id })}
               />
             );
           }

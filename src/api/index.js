@@ -23,6 +23,15 @@ export async function getMessagesByRecipientId({ recipientId, offset = 0, limit 
   }
 }
 
+export async function deleteMessage({ messageId }) {
+  try {
+    const result = await instance.delete(`/messages/${messageId}/`);
+    return result.data;
+  } catch (err) {
+    throw new Error('잘못 요청된 deleteMessage.');
+  }
+}
+
 /*
 export async function postReactionByRecipientId(recipientId, params) {
   const result = await axios.post(``);
