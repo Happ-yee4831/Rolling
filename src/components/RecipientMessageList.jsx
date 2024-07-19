@@ -79,23 +79,25 @@ function RecipientMessageList({ recipientId }) {
   return (
     <Container>
       <div>
-        <div style={{ textAlign: 'end' }}>
-          <button
-            type="button"
-            style={{
-              padding: '7px 17px',
-              borderRadius: '6px',
-              background: '#9935FF',
-              fontSize: '16px',
-              fontWeight: 400,
-              lineHeight: '26px',
-              letterSpacing: '-0.01em',
-              textAlign: 'center',
-              color: '#FFFFFF',
-            }}>
-            삭제하기
-          </button>
-        </div>
+        {isEdit && (
+          <div style={{ textAlign: 'end' }}>
+            <button
+              type="button"
+              style={{
+                padding: '7px 17px',
+                borderRadius: '6px',
+                background: '#9935FF',
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '26px',
+                letterSpacing: '-0.01em',
+                textAlign: 'center',
+                color: '#FFFFFF',
+              }}>
+              삭제하기
+            </button>
+          </div>
+        )}
         <MessageList>
           <SendMessageCard>
             <img width={56} height={56} src={PlusImage} alt="add Message" />
