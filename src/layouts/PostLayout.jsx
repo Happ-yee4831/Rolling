@@ -1,4 +1,4 @@
-import Header from 'components/Header';
+import PostHeader from 'components/PostHeader';
 import useResponsive from 'hooks/useResponsive';
 import React from 'react';
 import { Outlet } from 'react-router-dom';
@@ -8,7 +8,7 @@ function PostLayout() {
 
   return (
     <>
-      {device !== 'mobile' && <Header />}
+      {device !== 'mobile' && <PostHeader />}
       <Outlet />
     </>
   );
