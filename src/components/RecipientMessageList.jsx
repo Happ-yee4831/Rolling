@@ -5,7 +5,7 @@ import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
 import { createPortal } from 'react-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
 
@@ -16,6 +16,7 @@ function RecipientMessageList({ recipientId }) {
   const [modalMessage, setModalMessage] = useState(null);
   const target = useRef();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const fetchMessages = useCallback(async () => {
     const urlInfo = getUrlInfo(nextCursor);
@@ -83,7 +84,11 @@ function RecipientMessageList({ recipientId }) {
           <div style={{ textAlign: 'end' }}>
             <button
               type="button"
-              onClick={() => deleteRecipients({ recipientId })}
+              onClick={() =>
+                deleteRecipients({ recipientId }).then(() => {
+                  navigate('/post');
+                })
+              }
               style={{
                 padding: '7px 17px',
                 borderRadius: '6px',
@@ -100,9 +105,12 @@ function RecipientMessageList({ recipientId }) {
           </div>
         )}
         <MessageList>
-          <SendMessageCard>
-            <img width={56} height={56} src={PlusImage} alt="add Message" />
-          </SendMessageCard>
+          {!isEdit && (
+            <SendMessageCard>
+              <img width={56} height={56} src={PlusImage} alt="add Message" />
+            </SendMessageCard>
+          )}
+
           {messages?.map(message => {
             if (isEdit) {
               return (
