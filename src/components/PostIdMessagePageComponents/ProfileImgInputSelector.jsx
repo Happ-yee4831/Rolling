@@ -1,6 +1,12 @@
 /* eslint-disable */
 import { useRef, useState, useEffect } from 'react';
-
+import {
+  StyledSection,
+  SelectedProfileImg,
+  ProfileImgContainer,
+  ProfileImgList,
+  MakeImgRound,
+} from '../../styles/PostIdMessageStyle';
 import { fetchProfileImg } from '../../api/someApi';
 
 const ProfileImgInputSelector = ({ children, setProfileImageURL }) => {
