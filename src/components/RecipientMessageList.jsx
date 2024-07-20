@@ -90,7 +90,6 @@ function RecipientMessageList({ recipientId }) {
                 })
               }
               style={{
-                marginTop: '63px',
                 padding: '7px 17px',
                 borderRadius: '6px',
                 background: '#9935FF',
