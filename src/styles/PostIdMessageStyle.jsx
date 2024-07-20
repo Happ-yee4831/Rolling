@@ -234,10 +234,50 @@ const SelectedProfileImg = styled.div`
   }
 `;
 
+const FormContainer = styled.form`
+  margin: 47px auto 62px auto;
+  width: 720px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  @media (max-width: 767px) {
+    width: 320px;
+  }
+`;
+
+const CreateButtonStyle = styled.button`
+  display: block;
+  width: 720px;
+  padding: 14px 24px;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+
+  background-color: ${props => (props.disabled ? '#CCCCCC' : '#9935FF')};
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${props => (props.disabled ? 0.5 : 1)};
+  &:hover {
+    background-color: ${props => (props.disabled ? '#CCCCCC' : '#861DEE')};
+  }
+
+  @media (max-width: 767px) {
+    width: 320px;
+  }
+`;
+
 export {
   StyledSection,
   ProfileImgList,
   MakeImgRound,
   ProfileImgContainer,
   SelectedProfileImg,
+  FormContainer,
+  CreateButtonStyle,
 };
