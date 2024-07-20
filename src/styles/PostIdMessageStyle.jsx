@@ -45,4 +45,54 @@ const StyledSection = styled.section`
   & input.error {
     border: 1px solid #dc3a3a;
   }
-`;    
+`;
+
+const ProfileImgList = styled.div`
+  display: flex;
+  gap: 4px;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+  }
+`;
+
+const MakeImgRound = styled.img`
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 100px;
+  border: 1px solid #eeeeee;
+  @media (max-width: 767px) {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+const ProfileImgContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  & span {
+    color: #555555;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+`;
+
+const SelectedProfileImg = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  @media (max-width: 767px) {
+    gap: 20px;
+  }
+`;
+
+export {
+  StyledSection,
+  ProfileImgList,
+  MakeImgRound,
+  ProfileImgContainer,
+  SelectedProfileImg,
+};
