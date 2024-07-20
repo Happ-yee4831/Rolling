@@ -28,7 +28,14 @@ const postUserData = async (sendData) => {
   }
 };
 
+const fetchProfileImg = async () => {
+  const response = await fetch(`${BASE_URL}profile-images/`);
+  const data = await response.json();
+  return data;
+};
+
 export {
   getDataBackgroundImg,
   postUserData,
+  fetchProfileImg,
 };
