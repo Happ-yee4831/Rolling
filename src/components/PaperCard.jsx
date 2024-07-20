@@ -59,7 +59,7 @@ const Paper = styled.article`
 
 function PaperCard({ paper }) {
   return (
-    <Link to={`/items/${paper.id}`}>
+    <Link to={`/post/${paper.id}`}>
       <Paper $paper={paper}>
         <section className={style.Author}>
           <h3>To. {paper.name}</h3>
