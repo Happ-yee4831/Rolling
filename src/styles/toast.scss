@@ -1,0 +1,41 @@
+@keyframes toast-in-bottom {
+  from {
+    transform: translate(-50%, 100%);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes toast-out-bottom {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 100%);
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 524px;
+  height: 64px;
+  padding: 19px 30px;
+  border-radius: 8px;
+  z-index: 20;
+}
+
+.toast.toast-open {
+  transform: translate(-50%, 0);
+  animation: 1s toast-in-bottom;
+}
+
+.toast.toast-close {
+  animation: 1s toast-out-bottom;
+}

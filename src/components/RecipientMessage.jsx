@@ -12,7 +12,7 @@ function RecipientMessage({ message, onModal, isEdit, onClickTrashBtn }) {
   };
 
   return (
-    <S.MessageCard onClick={handleModal}>
+    <S.MessageCard font={font} onClick={handleModal}>
       <S.Flex $gap={14} item="center">
         <Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
         {(isEdit && (

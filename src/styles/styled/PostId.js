@@ -1,4 +1,21 @@
 import styled, { css } from 'styled-components';
+import { font16Regular } from './Toast';
+import media from './media';
+
+const fontFamily = {
+  'Noto Sans': css`
+    font-family: 'Noto Sans Korean', 'Noto Sans';
+  `,
+  Pretendard: css`
+    font-family: Pretendard, 'Pretendard Variable';
+  `,
+  나눔명조: css`
+    font-family: 'Nanum Myeongjo';
+  `,
+  '나눔손글씨 손편지체': css`
+    font-family: Handletter;
+  `,
+};
 
 const relationShipColors = {
   친구: css`
@@ -32,12 +49,17 @@ export const Container = styled.div`
 `;
 
 export const RecipientSummary = styled(Container)`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
-  padding: 13px 0;
+  padding: 13px 24px;
   background-color: white;
+  ${media.mobile`
+		justify-content: center;
+		align-items: center;
+		padding: 10px 20px;
+	`}
 `;
 
 export const Receiver = styled.h1`
@@ -50,14 +72,16 @@ export const Receiver = styled.h1`
 `;
 
 export const VerticalDivider = styled.div`
-  border: 1px solid ${({ theme }) => theme.color.grayBorder};
+  width: 1px;
+  background-color: ${({ theme }) => theme.color.grayBorder};
   height: ${({ $height }) => `${$height}px`};
   margin-left: ${({ $marginX, $marginLeft }) => `${$marginX ?? $marginLeft}px`};
   margin-right: ${({ $marginX, $marginRight }) => `${$marginX ?? $marginRight}px`};
 `;
 
 export const HorizontalDivider = styled.div`
-  border: 1px solid ${({ theme }) => theme.color.grayBorder};
+  height: 1px;
+  background-color: ${({ theme }) => theme.color.grayBorder};
   width: ${({ $width }) => {
     if (!$width) return 0;
     if ($width.includes('%')) {
@@ -71,30 +95,44 @@ export const HorizontalDivider = styled.div`
 
 export const MessageList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 384px);
+  grid-auto-rows: 280px;
+  justify-content: center;
   gap: 24px;
   /* margin: 114px auto 0; */
   margin-top: 11px;
   padding-bottom: 246px;
+  min-height: 100vh;
+  ${media.tablet`
+		grid-template-columns: repeat(2, 352px);
+		grid-auto-rows: 284px;
+	`}
+  ${media.mobile`
+		grid-template-columns: repeat(1, 320px);
+		grid-auto-rows: 230px;
+	`}
 `;
 
 export const MessageCard = styled.li`
+  ${({ font }) => fontFamily[font] ?? fontFamily['Noto Sans']}
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  width: 384px;
-  height: 280px;
   padding: 28px 24px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0px 2px 12px 0px #00000014;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 2px 12px 0px #00000060;
+  }
 `;
 
 export const SendMessageCard = styled(MessageCard)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 export const Flex = styled.div`
@@ -107,6 +145,7 @@ export const Flex = styled.div`
   margin-top: ${({ mt }) => `${mt}px`};
   padding-left: ${({ pl }) => `${pl}px`};
   flex-grow: ${({ $grow }) => $grow};
+  ${({ $width }) => $width && `width: ${$width}`}
 `;
 
 export const Relation = styled.span`
@@ -167,4 +206,99 @@ export const ModalClose = styled.button`
   background-color: ${({ theme }) => theme.color.purple600};
   color: white;
   align-self: center;
+`;
+
+export const DropDownList = styled.ul`
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #b6b6b6;
+  background-color: white;
+  box-shadow: 0px 2px 12px 0px #00000014;
+`;
+
+export const SharedList = styled(DropDownList)`
+  top: 48px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+`;
+
+export const SharedItem = styled.li`
+  ${font16Regular}
+  width: 140px;
+  padding: 12px 16px;
+  &:hover {
+    background-color: ${({ theme }) => theme.color.gray200};
+  }
+`;
+
+export const ReactionsList = styled(DropDownList)`
+  top: 48px;
+  right: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 24px;
+  gap: 10px;
+  ${media.tablet`
+		grid-template-columns: repeat(3, 1fr);
+	`}
+  ${media.mobile`
+		top: 48px;
+  	right: 0;
+	`}
+`;
+
+export const RelativeWrapper = styled.ul`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const ReactionItem = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background-color: ${({ theme }) => theme.backgroundColor.grayOpacity};
+`;
+
+export const Emoji = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+`;
+
+export const Count = styled.span`
+  color: white;
+`;
+
+export const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  padding: 6px;
+  ${media.mobile`
+		padding: 0px;
+	`}
+`;
+
+export const BorderButton = styled(Button)`
+  gap: 4px;
+  border: ${({ theme }) => `1px solid ${theme.color.gray300}`};
+  padding: 6px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  ${media.mobile`
+		padding: 6px 8px;
+	`}
 `;

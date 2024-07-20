@@ -14,9 +14,11 @@ export async function getRecipientById(id) {
 }
 
 export async function getMessagesByRecipientId({ recipientId, offset = 0, limit = 6 }) {
-  const query = `limit=${limit}&offset=${offset}`;
+  const params = { offset, limit };
   try {
-    const result = await instance.get(`/recipients/${recipientId}/messages/?${query}`);
+    const result = await instance.get(`/recipients/${recipientId}/messages/`, {
+      params,
+    });
     return result.data;
   } catch (err) {
     throw new Error('잘못 요청된 getMessagesByRecipientId입니다.');

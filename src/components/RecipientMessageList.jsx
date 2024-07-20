@@ -4,12 +4,13 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
+import { Link } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
 
-function RecipientMessageList({ recipientId }) {
+function RecipientMessageList({ id }) {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [nextCursor, setNextCursor] = useState(null);
@@ -56,7 +57,7 @@ function RecipientMessageList({ recipientId }) {
   useEffect(() => {
     const handleLoad = async () => {
       const data = await getMessagesByRecipientId({
-        recipientId,
+        recipientId: id,
         offset: 0,
         limit: 5,
       });
@@ -65,7 +66,7 @@ function RecipientMessageList({ recipientId }) {
     };
 
     handleLoad();
-  }, [recipientId]);
+  }, [id]);
 
   const onModalOpen = message => {
     setModalMessage(message);
