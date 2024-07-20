@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import style from 'styles/PaperList.module.css';
-import getRecipients from 'api/dummy/listPageTestApi';
+import getRecipients from 'api/paperListApi';
 import PaperCard from './PaperCard';
 import ChangeListButton from './ChangeListButton';
 
