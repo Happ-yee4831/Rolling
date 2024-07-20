@@ -1,5 +1,4 @@
 body > div {
-  background-color: var(--purple300);
   --header-height: 64px;
 
   > :where(header, main, footer) {
@@ -11,7 +10,6 @@ body > div {
   }
 
   .Temporary {
-    background-color: var(--orange200);
     position: fixed;
     top: 0;
     width: 100%;
@@ -20,7 +18,6 @@ body > div {
   }
 
   main {
-    background-color: var(--blue200);
     margin: auto;
     max-width: 1248px;
     padding-top: var(--header-height);
@@ -36,8 +33,8 @@ body > div {
       background-color: var(--purple600);
       color: var(--white);
       display: block;
-      border-radius: 12px;
       padding: 14px 24px;
+      border-radius: 12px;
       font-weight: bold;
       font-size: 18px;
       line-height: 28px;
