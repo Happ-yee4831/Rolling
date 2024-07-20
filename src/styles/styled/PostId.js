@@ -73,7 +73,8 @@ export const MessageList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin: 114px auto 0;
+  /* margin: 114px auto 0; */
+  margin-top: 11px;
   padding-bottom: 246px;
 `;
 
