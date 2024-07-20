@@ -1,14 +1,14 @@
 /* eslint-disable */
 import { useState, useRef, useEffect } from 'react';
-
+import { StyledSection } from '../../styles/PostIdMessageStyle';
+import ArrowDownSign from '../../assets/images/arrowDownSign.svg';
+import ArrowUpSign from '../../assets/images/arrowUpSign.svg';
 
 const RelationshipAndFontSelector = ({
   children,
   optionType,
   last,
-  relationship,
   setRelationship,
-  font,
   setFont,
 }) => {
   let options = [];
@@ -53,7 +53,30 @@ const RelationshipAndFontSelector = ({
   }
 
   return (
-
+    <StyledSection last={last}>
+      <label htmlFor={options}>{children}</label>
+      <button type="button" onClick={handleOptions} ref={buttonRef}>
+        {selected}
+        {isOpen ? (
+          <img src={ArrowUpSign} alt="위쪽 화살표 이미지" />
+        ) : (
+          <img src={ArrowDownSign} alt="아래쪽 화살표 이미지" />
+        )}
+      </button>
+      <div className="toggle-options">
+        {isOpen && (
+          <ul>
+            {options.map((option) => {
+              return (
+                <li onClick={selectOption} onKeyDown={selectOption}>
+                  {option}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+    </StyledSection>
   );
 }
 
