@@ -1,9 +1,9 @@
 .popularPaper,
 .recentlyCreated {
-  background-color: var(--gray300);
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
+  max-width: 1160px;
   gap: 12px;
 
   h2 {
@@ -14,7 +14,6 @@
 
   @media (min-width: 768px) {
     margin: 50px auto 0;
-    max-width: 1160px;
     gap: 16px;
 
     h2 {
@@ -24,17 +23,10 @@
       letter-spacing: -0.01em;
     }
   }
+}
 
-  .paperList {
-    display: flex;
-    width: 100%;
-    max-width: 1160px;
-    overflow: auto;
-    gap: 12px;
-    position: relative;
-
-    @media (min-width: 768px) {
-      gap: 20px;
-    }
+@media (width < 768px) {
+  .recentlyCreated {
+    margin-top: 74px;
   }
 }
