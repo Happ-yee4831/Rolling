@@ -4,7 +4,7 @@ import items from 'api/dummy/mock.json';
 
 function ListPage() {
   return (
-    <>
+    <main>
       <section className={style.popularPaper}>
         <h2>인기 롤링 페이퍼 🔥</h2>
         <div className={style.paperList}>
@@ -22,7 +22,7 @@ function ListPage() {
           ))}
         </div>
       </section>
-    </>
+    </main>
   );
 }
 

@@ -10,9 +10,7 @@ function Layout() {
       <header className={style.Temporary} />
       {/* 임시 헤더 */}
 
-      <main>
-        <Outlet />
-      </main>
+      <Outlet />
 
       {/* <Footer /> */}
       <footer>
