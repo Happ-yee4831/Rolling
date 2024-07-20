@@ -24,6 +24,6 @@ const ColorAndImageButton = ({ setIsColor, isColor }) => {
       )}
     </UpperLowerInterval>
   );
-};
+}
 
 export default ColorAndImageButton;
