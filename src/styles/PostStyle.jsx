@@ -99,10 +99,129 @@ const ListInterval = styled.div`
   }
 `;
 
+const ListShape = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 168px;
+  height: 168px;
+  border-radius: 16px;
+  @media (max-width: 768px) {
+    width: 154px;
+    height: 154px;
+  }
+`;
+
+const BackgroundColorList = styled(ListShape)`
+  &.beige {
+    background-color: #ffe2ad;
+  }
+  &.purple {
+    background-color: #ecd9ff;
+  }
+  &.green {
+    background-color: #d0f5c3;
+  }
+  &.blue {
+    background-color: #b1e4ff;
+  }
+`;
+
+
+const BackgroundImgList = styled(ListShape)`
+  background-image: url(${(props) => props.src});
+`;
+
+
+const SubmitForm = styled.form``;
+
+const TopContainer = styled.div`
+  width: 720px;
+  margin: 57px auto 0;
+  .target {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 42px;
+    letter-spacing: -0.24px;
+    margin-bottom: 12px;
+  }
+  .errorMessage {
+    font-size: 12px;
+    margin-top: 5px;
+    color: red;
+    text-indent: 2px;
+  }
+  @media (max-width: 1200px) {
+    margin: 49px auto 0;
+    .target {
+      line-height: 36px;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 320px;
+    margin: 50px auto 0;
+    .target {
+      line-height: 36px;
+    }
+  }
+`;
+
+const ToNameInput = styled.input`
+  width: 720px;
+  height: 25px;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  &::placeholder {
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.16px;
+  }
+  @media (max-width: 768px) {
+    width: 320px;
+  }
+`;
+
+const BottomContainer = styled.div`
+  width: 720px;
+  margin: 50px auto 0;
+
+  & .text .title {
+    color: #181818;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.24px;
+  }
+
+  & .text .subtitle {
+    color: #555;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: -0.16px;
+  }
+  @media (max-width: 1200px) {
+    margin: 54px auto 0;
+  }
+  @media (max-width: 768px) {
+    width: 320px;
+    margin: 48px auto 0;
+  }
+`;
+
 export {
   CreateButtonStyle,
   UpperLowerInterval,
   UnselectedButton,
   SelectedButton,
   ListInterval,
-}
+  ListShape,
+  BackgroundColorList,
+  BackgroundImgList,
+  SubmitForm,
+  TopContainer,
+  ToNameInput,
+  BottomContainer,
+};
