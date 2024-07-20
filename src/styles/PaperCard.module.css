@@ -1,66 +1,90 @@
-.rollingPaper {
-  background-color: brown;
+.Author {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 208px;
-  height: 232px;
-  padding: 30px 22px 20px 24px;
+  gap: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
 
-  .writer {
+  @media (min-width: 768px) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .recentMessages {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
+    height: 28px;
 
-    p {
-      font-size: 14px;
-      line-height: 20px;
+    > small {
+      background: var(--white);
+      color: var(--gray500);
+      position: absolute;
+      left: 48px;
+      padding: 5px 6px;
+      border-radius: 30px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
       letter-spacing: -0.005em;
-
-      span {
-        font-weight: normal;
-      }
     }
+  }
+
+  > p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      line-height: 26px;
+      letter-spacing: -0.01em;
+    }
+
+    span {
+      font-weight: normal;
+    }
+  }
+}
+
+.topReactions {
+  display: flex;
+  height: 49px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  gap: 4px;
+
+  @media (min-width: 768px) {
+    height: 53px;
+    gap: 8px;
   }
 
   .emoji {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-    padding-top: 16px;
+    background-color: rgba(0, 0, 0, 0.54);
+    color: var(--white);
     display: flex;
-    flex-wrap: nowrap;
-    gap: 4px;
-  }
+    padding: 6px 8px;
+    border-radius: 32px;
+    gap: 2px;
+    line-height: 20px;
 
-  @media (min-width: 768px) {
-    width: 275px;
-    height: 260px;
-    padding-left: 24px;
-
-    .writer {
-      gap: 12px;
-      font-size: 24px;
-      line-height: 36px;
-
-      p {
-        font-size: 16px;
-        line-height: 26px;
-        letter-spacing: -0.01em;
-      }
+    > div {
+      width: 20px;
     }
 
-    .emoji {
-      gap: 8px;
+    > p {
+      color: var(--white);
     }
-  }
 
-  @media (min-width: 1248px) {
-    .writer {
-      gap: 12px;
+    @media (width < 768px) {
+      font-size: 14px;
+      letter-spacing: -0.005em;
+    }
+
+    @media (min-width: 768px) {
+      padding: 8px 12px;
     }
   }
 }
