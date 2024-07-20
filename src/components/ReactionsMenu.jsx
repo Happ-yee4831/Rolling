@@ -36,7 +36,6 @@ const EmojiPickerStyles = {
   position: 'absolute',
   top: '48px',
   right: '-50px',
-  right: '-50px',
 };
 
 function ReactionsMenu({ id }) {

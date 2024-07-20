@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
+import { Link } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
@@ -75,9 +76,11 @@ function RecipientMessageList({ id }) {
   return (
     <Container>
       <MessageList>
-        <SendMessageCard>
-          <img width={56} height={56} src={PlusImage} alt="add Message" />
-        </SendMessageCard>
+        <Link to={`/post/${id}/message`}>
+          <SendMessageCard>
+            <img width={56} height={56} src={PlusImage} alt="add Message" />
+          </SendMessageCard>
+        </Link>
         {messages?.map(message => (
           <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />
         ))}

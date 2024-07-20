@@ -131,6 +131,7 @@ export const SendMessageCard = styled(MessageCard)`
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 `;
 
 export const Flex = styled.div`
