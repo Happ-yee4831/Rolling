@@ -1,5 +1,6 @@
+/* eslint-disable */
 
-
+import Vmark from '../../assets/images/VmarkInCircle.svg';
 
 const showBackgroundImg = ({ backgroundImgs, selectImg, setSelectImg }) => {
   const handleImgChange = (img) => {
