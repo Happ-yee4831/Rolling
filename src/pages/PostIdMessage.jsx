@@ -1,7 +1,10 @@
 /* eslint-disable */
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
-
+import {
+  FormContainer,
+  CreateButtonStyle,
+} from '../styles/PostIdMessageStyle';
 import FromNameInput from '../components/PostIdMessagePageComponents/FromNameInput';
 import ProfileImgInputSelector from '../components/PostIdMessagePageComponents/ProfileImgInputSelector';
 import TextContentBox from '../components/PostIdMessagePageComponents/TextContentBox';
