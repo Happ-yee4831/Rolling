@@ -22,6 +22,34 @@ const ProfileImgInputSelector = ({ children, setProfileImageURL }) => {
   }, []);
 
   return (
-
+    <StyledSection>
+      <label htmlFor="profileImgURL">{children}</label>
+      <SelectedProfileImg>
+        <img
+          src={profileImgs[0]}
+          alt="기본 프로필 이미지"
+          width="80px"
+          height="80px"
+          ref={imgRef}
+          className="selected-profile-img"
+        />
+        <ProfileImgContainer>
+          <span>프로필 이미지를 선택해 주세요!</span>
+          <ProfileImgList>
+            {profileImgs.map((img) => {
+              return (
+                <MakeImgRound
+                  src={img}
+                  alt="샘플 프로필 이미지"
+                  onClick={handleChangeProfileImg}
+                />
+              );
+            })}
+          </ProfileImgList>
+        </ProfileImgContainer>
+      </SelectedProfileImg>
+    </StyledSection>
   );
 }
+
+export default ProfileImgInputSelector;
