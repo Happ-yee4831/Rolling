@@ -1,5 +1,5 @@
 /* eslint-disable */
-
+import { ListInterval, BackgroundColorList } from '../../styles/PostStyle';
 import BackgroundImgList from './BackgroundImgList';
 import Vmark from '../../assets/images/VmarkInCircle.svg';
 

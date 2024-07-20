@@ -31,3 +31,78 @@ const CreateButtonStyle = styled.button`
     margin-bottom: 24px;
   }
 `;
+
+const UpperLowerInterval = styled.div`
+  display: flex;
+  margin-top: 24px;
+`;
+
+const UnselectedButton = styled.button`
+  box-sizing: content-box;
+  background-color: #f6f6f6;
+  border: none;
+  border-radius: 6px;
+  width: 90px;
+  padding: 7px 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+  &:hover {
+    width: 90px;
+    padding: 6px 14px;
+    font-weight: 700;
+    background-color: #F8F0FF;
+    border: 2px solid #861dee;
+    color: #861dee;
+  }
+  @media (max-width: 768px) {
+    padding: 7px 14px;
+    &:hover {
+      padding: 5px 12px;
+    }
+  }
+`;
+
+const SelectedButton = styled.button`
+  box-sizing: content-box;
+  border: none;
+  border-radius: 6px;
+  width: 90px;
+  padding: 6px 14px;
+  font-weight: 700;
+  background-color: #ffffff;
+  border: 2px solid #861dee;
+  color: #861dee;
+  line-height: 26px;
+  letter-spacing: -0.16px;
+  @media (max-width: 768px) {
+    padding: 7px 14px;
+    &:hover {
+      padding: 5px 12px;
+    }
+  }
+`;
+
+
+const ListInterval = styled.div`
+  margin: 45px 0;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1200px) {
+    margin: 40px 0 340px;
+  }
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    width: 320px;
+    margin: 28px 0 82px;
+    gap: 12px;
+  }
+`;
+
+export {
+  CreateButtonStyle,
+  UpperLowerInterval,
+  UnselectedButton,
+  SelectedButton,
+  ListInterval,
+}

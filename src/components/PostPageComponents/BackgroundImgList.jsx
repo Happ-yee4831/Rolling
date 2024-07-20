@@ -1,5 +1,5 @@
 /* eslint-disable */
-
+import { ListInterval, BackgroundImgList } from '../../styles/PostStyle';
 import Vmark from '../../assets/images/VmarkInCircle.svg';
 
 const showBackgroundImg = ({ backgroundImgs, selectImg, setSelectImg }) => {

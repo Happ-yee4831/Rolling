@@ -1,5 +1,5 @@
-
-
+/* eslint-disable */
+import { UpperLowerInterval, UnselectedButton, SelectedButton } from '../../styles/PostStyle';
 
 const ColorAndImageButton = ({ setIsColor, isColor }) => {
   const changeType = (type) => {
