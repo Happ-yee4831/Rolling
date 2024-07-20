@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useRef } from 'react';
-
+import { StyledSection } from '../../styles/PostIdMessageStyle';
 
 const FromNameInput = ({ children, sender, setSender }) => {
   const inputRef = useRef();
