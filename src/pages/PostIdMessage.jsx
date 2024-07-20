@@ -40,7 +40,33 @@ const PostIdMessage = () => {
   const isButtonDisabled = !sender || !content;
 
   return (
-
+    <>
+      <FormContainer onSubmit={handleSubmit}>
+        <FromNameInput sender={sender} setSender={setSender}>
+          From.
+        </FromNameInput>
+        <ProfileImgInputSelector
+          profileImageURL={profileImageURL}
+          setProfileImageURL={setProfileImageURL}
+        >
+          프로필 이미지
+        </ProfileImgInputSelector>
+        <RelationshipAndFontSelector
+          optionType="relationship"
+          relationship={relationship}
+          setRelationship={setRelationship}
+        >
+          상대와의 관계
+        </RelationshipAndFontSelector>
+        <TextContentBox content={content} setContent={setContent}>
+          내용을 입력해 주세요
+        </TextContentBox>
+        <RelationshipAndFontSelector optionType="font" last font={font} setFont={setFont}>
+          폰트 선택
+        </RelationshipAndFontSelector>
+        <CreateButtonStyle type="submit" disabled={isButtonDisabled}>생성하기</CreateButtonStyle>
+      </FormContainer>
+    </>
   );
 }
 
