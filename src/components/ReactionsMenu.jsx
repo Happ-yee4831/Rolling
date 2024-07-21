@@ -3,7 +3,16 @@ import DropDownArrow from 'assets/images/arrow_down@2x.png';
 import EmojiAdd from 'assets/images/add-24@2x.png';
 import EmojiPicker from 'emoji-picker-react';
 import axios from 'axios';
-import { ReactionsList, Button, Count, BorderButton, Emoji, RelativeWrapper, ReactionItem } from 'styles/styled/PostId';
+import {
+  ReactionsList,
+  Button,
+  Count,
+  BorderButton,
+  Emoji,
+  RelativeWrapper,
+  ReactionItem,
+  VerticalDivider,
+} from 'styles/styled/PostId';
 import { RecipientHeaderContext } from 'contexts/RecipientHeaderProvider';
 import useResponsive from 'hooks/useResponsive';
 
@@ -72,39 +81,42 @@ function ReactionsMenu({ id }) {
   }, [id, limit]);
 
   return (
-    <RelativeWrapper>
-      {reactions?.slice(0, 3).map(top => (
-        <ReactionItem key={top.id}>
-          <Emoji>{top.emoji}</Emoji>
-          <Count>{top.count}</Count>
-        </ReactionItem>
-      ))}
-      <Button type="button" onClick={() => handleDropdownToggle('isReactionsOpen')}>
-        <img width={24} height={24} src={DropDownArrow} alt="drop down" />
-      </Button>
-      {isReactionsOpen && (
-        <ReactionsList>
-          {reactions.map(reaction => (
-            <ReactionItem key={reaction.id}>
-              <Emoji>{reaction.emoji}</Emoji>
-              <Count>{reaction.count}</Count>
-            </ReactionItem>
-          ))}
-        </ReactionsList>
-      )}
-      <BorderButton type="button" onClick={() => handleDropdownToggle('isEmojiPickerOpen')}>
-        <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
-        {device !== 'mobile' && '추가'}
-      </BorderButton>
+    <>
+      <RelativeWrapper>
+        {reactions?.slice(0, 3).map(top => (
+          <ReactionItem key={top.id}>
+            <Emoji>{top.emoji}</Emoji>
+            <Count>{top.count}</Count>
+          </ReactionItem>
+        ))}
+        <Button type="button" onClick={() => handleDropdownToggle('isReactionsOpen')}>
+          <img width={24} height={24} src={DropDownArrow} alt="drop down" />
+        </Button>
+        {isReactionsOpen && (
+          <ReactionsList>
+            {reactions.map(reaction => (
+              <ReactionItem key={reaction.id}>
+                <Emoji>{reaction.emoji}</Emoji>
+                <Count>{reaction.count}</Count>
+              </ReactionItem>
+            ))}
+          </ReactionsList>
+        )}
+        <BorderButton type="button" onClick={() => handleDropdownToggle('isEmojiPickerOpen')}>
+          <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
+          {device !== 'mobile' && '추가'}
+        </BorderButton>
 
-      <EmojiPicker
-        style={EmojiPickerStyles}
-        onEmojiClick={handlePostReactions}
-        open={isEmojiPickerOpen}
-        width={device !== 'mobile' ? 305 : 280}
-        height={390}
-      />
-    </RelativeWrapper>
+        <EmojiPicker
+          style={EmojiPickerStyles}
+          onEmojiClick={handlePostReactions}
+          open={isEmojiPickerOpen}
+          width={device !== 'mobile' ? 305 : 280}
+          height={390}
+        />
+      </RelativeWrapper>
+      <VerticalDivider $height={28} $marginX={13} />
+    </>
   );
 }
 

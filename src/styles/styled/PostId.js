@@ -48,27 +48,30 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const RecipientSummary = styled(Container)`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 24px;
-  background-color: white;
-  ${media.mobile`
-		justify-content: center;
-		align-items: center;
-		padding: 10px 20px;
-	`}
-`;
-
 export const Receiver = styled.h1`
   font-size: 28px;
   line-height: 42px;
   letter-spacing: -0.01em;
   text-align: left;
   font-weight: 700;
-  flex-grow: 1;
+`;
+
+export const RecipientSummary = styled(Container)`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr repeat(5, auto);
+  align-items: center;
+  padding: 13px 24px;
+  background-color: white;
+  ${media.mobile`
+		grid-template-columns: repeat(5, auto);
+		grid-template-rows: 1fr 1fr;
+		justify-content: start;
+		padding: 10px 20px;
+		${Receiver} {
+			grid-column: 1 / -1;
+		}
+	`}
 `;
 
 export const VerticalDivider = styled.div`
