@@ -13,12 +13,26 @@ function RecipientHeader({ recipient, id }) {
   return (
     <RecipientHeaderProvider>
       <S.Background>
-        <S.RecipientSummary>
-          <S.Receiver>To. {name}</S.Receiver>
-          {device === 'pc' && <SendersProfile messages={recentMessages} count={messageCount} />}
-          <ReactionsMenu id={id} />
-          <Shared recipient={recipient} />
-        </S.RecipientSummary>
+        {device !== 'mobile' && (
+          <S.RecipientSummary>
+            <S.Receiver>To. {name}</S.Receiver>
+            {device === 'pc' && <SendersProfile messages={recentMessages} count={messageCount} />}
+            <ReactionsMenu id={id} />
+            <Shared recipient={recipient} />
+          </S.RecipientSummary>
+        )}
+        {device === 'mobile' && (
+          <>
+            <S.RecipientSummary>
+              <S.Receiver>To. {name}</S.Receiver>
+            </S.RecipientSummary>
+            <S.HorizontalDivider $width="100%" />
+            <S.RecipientSummary>
+              <ReactionsMenu id={id} />
+              <Shared recipient={recipient} />
+            </S.RecipientSummary>
+          </>
+        )}
       </S.Background>
     </RecipientHeaderProvider>
   );

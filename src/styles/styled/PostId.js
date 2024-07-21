@@ -65,9 +65,9 @@ export const RecipientSummary = styled(Container)`
   background-color: white;
   ${media.mobile`
 		grid-template-columns: repeat(5, auto);
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: 1fr;
 		justify-content: start;
-		padding: 10px 20px;
+		padding: 12px 20px;
 		${Receiver} {
 			grid-column: 1 / -1;
 		}
