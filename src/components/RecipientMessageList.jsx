@@ -45,7 +45,7 @@ function RecipientMessageList({ id }) {
         observer.unobserve(current);
       }
     };
-  }, []);
+  }, [messages]);
 
   useEffect(() => {
     if (isLoading && nextCursor) fetchMessages();
@@ -86,7 +86,7 @@ function RecipientMessageList({ id }) {
         ))}
         <div ref={target} />
       </S.MessageList>
-      {createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
+      {modalMessage && createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
     </S.Container>
   );
 }
