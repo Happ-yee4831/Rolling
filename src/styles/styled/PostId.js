@@ -196,6 +196,7 @@ export const ModalMessageCard = styled(MessageCard)`
   position: fixed;
   width: 600px;
   height: 476px;
+  max-width: 75%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

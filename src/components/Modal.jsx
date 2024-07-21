@@ -3,14 +3,11 @@ import * as S from 'styles/styled/PostId';
 import getformatDate from 'utils/getformatDate';
 
 function Modal({ value, onModalClose }) {
-  if (value === null) {
-    return null;
-  }
   const { profileImageURL, relationship, sender, content, createdAt } = value;
   return (
     <S.ScreenBlinder>
       <S.ModalMessageCard as="div">
-        <S.Flex $width="100%" $gap={14} $item="center" $content="space-between">
+        <S.Flex $width="100%" $gap={14} $item="center" $content="space-between" $wrap="wrap">
           <S.Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
           <S.Flex $flex="column" $gap="6" $grow="1">
             <div>From. {sender}</div>
