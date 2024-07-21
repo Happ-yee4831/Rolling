@@ -1,27 +1,26 @@
 import React from 'react';
-import { VerticalDivider } from 'styles/styled/PostId';
-import { Profile, RecentSenders, Sender, TotalSenders, Wrapper } from 'styles/styled/SendersProfile';
+import * as S from 'styles/styled/PostId';
 
 function SendersProfile({ messages, count }) {
   return (
     <>
-      <Wrapper>
-        <RecentSenders>
+      <S.Wrapper>
+        <S.RecentSenders>
           {messages?.map(message => (
-            <Sender key={message.id + message.sender}>
-              <Profile src={message.profileImageURL} alt="recent messages profile" />
-            </Sender>
+            <S.Sender key={message.id + message.sender}>
+              <S.Profile src={message.profileImageURL} alt="recent messages profile" />
+            </S.Sender>
           ))}
-          {count && count > 3 && <Sender>+{count - 3}</Sender>}
-        </RecentSenders>
+          {count && count > 3 && <S.Sender>+{count - 3}</S.Sender>}
+        </S.RecentSenders>
         {count && (
-          <TotalSenders>
+          <S.TotalSenders>
             {count}
             <span>명이 작성했어요!</span>
-          </TotalSenders>
+          </S.TotalSenders>
         )}
-      </Wrapper>
-      <VerticalDivider $height={28} $marginX={28} />
+      </S.Wrapper>
+      <S.VerticalDivider $height={28} $marginX={28} />
     </>
   );
 }

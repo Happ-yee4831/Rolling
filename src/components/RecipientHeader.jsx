@@ -1,5 +1,5 @@
 import React from 'react';
-import { Background, Receiver, RecipientSummary } from 'styles/styled/PostId';
+import * as S from 'styles/styled/PostId';
 import useResponsive from 'hooks/useResponsive';
 import RecipientHeaderProvider from 'contexts/RecipientHeaderProvider';
 import SendersProfile from './SendersProfile';
@@ -12,14 +12,14 @@ function RecipientHeader({ recipient, id }) {
 
   return (
     <RecipientHeaderProvider>
-      <Background>
-        <RecipientSummary>
-          <Receiver>To. {name}</Receiver>
+      <S.Background>
+        <S.RecipientSummary>
+          <S.Receiver>To. {name}</S.Receiver>
           {device === 'pc' && <SendersProfile messages={recentMessages} count={messageCount} />}
           <ReactionsMenu id={id} />
           <Shared recipient={recipient} />
-        </RecipientSummary>
-      </Background>
+        </S.RecipientSummary>
+      </S.Background>
     </RecipientHeaderProvider>
   );
 }

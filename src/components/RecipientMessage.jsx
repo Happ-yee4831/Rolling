@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from 'styles/styled/PostId';
-import { Profile } from 'styles/styled/SendersProfile';
 import getformatDate from 'utils/getformatDate';
 
 function RecipientMessage({ message, onModal }) {
@@ -13,7 +12,7 @@ function RecipientMessage({ message, onModal }) {
   return (
     <S.MessageCard font={font} onClick={handleModal}>
       <S.Flex $gap={14} item="center">
-        <Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
+        <S.Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
         <S.Flex $flex="column" $gap="6">
           <div>From. {sender}</div>
           <S.Relation $relation={relationship}>{relationship}</S.Relation>

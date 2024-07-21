@@ -1,7 +1,7 @@
 import { getMessagesByRecipientId } from 'api';
 import axios from 'axios';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
+import * as S from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
 import { Link } from 'react-router-dom';
@@ -53,7 +53,7 @@ function RecipientMessageList({ id }) {
 
   useEffect(() => {
     const handleLoad = async () => {
-      const data = await getMessagesByRecipientId({
+      const { data } = await getMessagesByRecipientId({
         recipientId: id,
         offset: 0,
         limit: 5,
@@ -74,20 +74,20 @@ function RecipientMessageList({ id }) {
   };
 
   return (
-    <Container>
-      <MessageList>
+    <S.Container>
+      <S.MessageList>
         <Link to={`/post/${id}/message`}>
-          <SendMessageCard>
+          <S.SendMessageCard>
             <img width={56} height={56} src={PlusImage} alt="add Message" />
-          </SendMessageCard>
+          </S.SendMessageCard>
         </Link>
         {messages?.map(message => (
           <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />
         ))}
         <div ref={target} />
-      </MessageList>
+      </S.MessageList>
       {createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
-    </Container>
+    </S.Container>
   );
 }
 
