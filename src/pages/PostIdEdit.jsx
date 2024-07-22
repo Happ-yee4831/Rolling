@@ -1,41 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { getRecipientById } from 'api';
 import { useParams } from 'react-router-dom';
-import { Background, Receiver, RecipientSummary, VerticalDivider } from 'styles/styled/PostId';
-import SendersProfile from 'components/SendersProfile';
-import Reactions from 'components/ReactionsMenu';
-import Shared from 'components/Shared';
+import * as S from 'styles/styled/PostId';
 import RecipientMessageList from 'components/RecipientMessageList';
+import RecipientHeader from 'components/RecipientHeader';
 
-function PostIdEdit() {
-  const { id: recipientId } = useParams();
+function PostId() {
+  const { id } = useParams();
   const [recipient, setRecipient] = useState({});
-  const { name, recentMessages, topReactions, messageCount, backgroundColor } = recipient;
+  const { backgroundColor } = recipient;
 
   useEffect(() => {
     const handleLoad = async () => {
-      const result = await getRecipientById(recipientId);
-      setRecipient(() => result);
+      const { data } = await getRecipientById(id);
+      setRecipient(() => data);
     };
 
     handleLoad();
-  }, [recipientId]);
+  }, [id]);
 
   return (
-    <Background $backgroundColor={backgroundColor}>
-      <Background>
-        <RecipientSummary>
-          <Receiver>To. {name}</Receiver>
-          <SendersProfile messages={recentMessages} count={messageCount} />
-          <VerticalDivider $height={28} $marginX={28} />
-          <Reactions id={recipientId} reactions={topReactions} />
-          <VerticalDivider $height={28} $marginX={13} />
-          <Shared />
-        </RecipientSummary>
-      </Background>
-      <RecipientMessageList recipientId={recipientId} />
-    </Background>
+    <S.Background $backgroundColor={backgroundColor}>
+      <RecipientHeader recipient={recipient} id={id} />
+      <RecipientMessageList id={id} />
+    </S.Background>
   );
 }
 
-export default PostIdEdit;
+export default PostId;

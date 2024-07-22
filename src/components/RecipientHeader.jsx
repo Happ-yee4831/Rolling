@@ -1,5 +1,5 @@
 import React from 'react';
-import { Background, Flex, HorizontalDivider, Receiver, RecipientSummary, VerticalDivider } from 'styles/styled/PostId';
+import * as S from 'styles/styled/PostId';
 import useResponsive from 'hooks/useResponsive';
 import RecipientHeaderProvider from 'contexts/RecipientHeaderProvider';
 import SendersProfile from './SendersProfile';
@@ -12,41 +12,28 @@ function RecipientHeader({ recipient, id }) {
 
   return (
     <RecipientHeaderProvider>
-      <Background>
-        {device === 'pc' && (
-          <RecipientSummary>
-            <Receiver>To. {name}</Receiver>
-            <SendersProfile messages={recentMessages} count={messageCount} />
-            <VerticalDivider $height={28} $marginX={28} />
+      <S.Background>
+        {device !== 'mobile' && (
+          <S.RecipientSummary>
+            <S.Receiver>To. {name}</S.Receiver>
+            {device === 'pc' && <SendersProfile messages={recentMessages} count={messageCount} />}
             <ReactionsMenu id={id} />
-            <VerticalDivider $height={28} $marginX={13} />
             <Shared recipient={recipient} />
-          </RecipientSummary>
-        )}
-        {device === 'tablet' && (
-          <RecipientSummary>
-            <Receiver>To. {name}</Receiver>
-            <ReactionsMenu id={id} />
-            <VerticalDivider $height={28} $marginX={13} />
-            <Shared recipient={recipient} />
-          </RecipientSummary>
+          </S.RecipientSummary>
         )}
         {device === 'mobile' && (
           <>
-            <RecipientSummary>
-              <Receiver>To. {name}</Receiver>
-            </RecipientSummary>
-            <HorizontalDivider $width="100%" />
-            <RecipientSummary>
-              <Flex $item="center">
-                <ReactionsMenu id={id} />
-                <VerticalDivider $height={28} $marginX={13} />
-                <Shared recipient={recipient} />
-              </Flex>
-            </RecipientSummary>
+            <S.RecipientSummary>
+              <S.Receiver>To. {name}</S.Receiver>
+            </S.RecipientSummary>
+            <S.HorizontalDivider $width="100%" />
+            <S.RecipientSummary>
+              <ReactionsMenu id={id} />
+              <Shared recipient={recipient} />
+            </S.RecipientSummary>
           </>
         )}
-      </Background>
+      </S.Background>
     </RecipientHeaderProvider>
   );
 }

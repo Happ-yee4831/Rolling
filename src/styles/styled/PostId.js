@@ -48,27 +48,30 @@ export const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const RecipientSummary = styled(Container)`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 24px;
-  background-color: white;
-  ${media.mobile`
-		justify-content: center;
-		align-items: center;
-		padding: 10px 20px;
-	`}
-`;
-
 export const Receiver = styled.h1`
   font-size: 28px;
   line-height: 42px;
   letter-spacing: -0.01em;
   text-align: left;
   font-weight: 700;
-  flex-grow: 1;
+`;
+
+export const RecipientSummary = styled(Container)`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr repeat(5, auto);
+  align-items: center;
+  padding: 13px 24px;
+  background-color: white;
+  ${media.mobile`
+		grid-template-columns: repeat(5, auto);
+		grid-template-rows: 1fr;
+		justify-content: start;
+		padding: 12px 20px;
+		${Receiver} {
+			grid-column: 1 / -1;
+		}
+	`}
 `;
 
 export const VerticalDivider = styled.div`
@@ -194,6 +197,7 @@ export const ModalMessageCard = styled(MessageCard)`
   position: fixed;
   width: 600px;
   height: 476px;
+  max-width: 75%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -301,4 +305,70 @@ export const BorderButton = styled(Button)`
   ${media.mobile`
 		padding: 6px 8px;
 	`}
+`;
+
+export const Wrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+`;
+
+export const Profile = styled.img`
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+`;
+
+export const Sender = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1.4px solid white;
+  ${Profile} {
+    width: 28px;
+    height: 28px;
+  }
+`;
+
+export const RecentSenders = styled.ul`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 76px;
+  height: 28px;
+  ${Sender} {
+    position: absolute;
+  }
+  ${Sender}:nth-child(2) {
+    left: 14px;
+    z-index: 1;
+  }
+  ${Sender}:nth-child(3) {
+    left: 28px;
+    z-index: 2;
+  }
+  ${Sender}:nth-child(4) {
+    left: 42px;
+    z-index: 2;
+  }
+`;
+
+export const TotalSenders = styled.p`
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: left;
+  span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    text-align: left;
+  }
 `;

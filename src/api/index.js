@@ -7,7 +7,7 @@ const instance = axios.create({
 export async function getRecipientById(id) {
   try {
     const result = await instance.get(`/recipients/${id}/`);
-    return result.data;
+    return result;
   } catch (err) {
     throw new Error('잘못 요청된 getRecipientById입니다.');
   }
@@ -19,7 +19,7 @@ export async function getMessagesByRecipientId({ recipientId, offset = 0, limit 
     const result = await instance.get(`/recipients/${recipientId}/messages/`, {
       params,
     });
-    return result.data;
+    return result;
   } catch (err) {
     throw new Error('잘못 요청된 getMessagesByRecipientId입니다.');
   }
@@ -43,8 +43,34 @@ export async function deleteRecipients({ recipientId }) {
   }
 }
 
-/*
-export async function postReactionByRecipientId(recipientId, params) {
-  const result = await axios.post(``);
+export async function getReactionsByRecipientId(id, limit) {
+  const params = { limit };
+  try {
+    const result = await instance.get(`/recipients/${id}/reactions/`, {
+      params,
+    });
+    return result;
+  } catch (e) {
+    throw new Error(e);
+  }
 }
-*/
+
+export async function postReactionsByRecipientId(id, data) {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  try {
+    const result = await instance.post(
+      `recipients/${id}/reactions/`,
+      {
+        ...data,
+      },
+      config,
+    );
+    return result;
+  } catch (e) {
+    throw new Error(e);
+  }
+}

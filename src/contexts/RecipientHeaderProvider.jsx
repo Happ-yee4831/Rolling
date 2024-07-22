@@ -10,6 +10,7 @@ export const RecipientHeaderContext = createContext();
 
 function RecipientHeaderProvider({ children }) {
   const [dropdowns, setDropdowns] = useState(initialDefault);
+  console.log(dropdowns);
 
   const handleDropdownToggle = useCallback(
     clickedKey => {
@@ -26,7 +27,7 @@ function RecipientHeaderProvider({ children }) {
     [dropdowns],
   );
 
-  const providerValue = useMemo(
+  const value = useMemo(
     () => ({
       dropdowns,
       handleDropdownToggle,
@@ -34,7 +35,7 @@ function RecipientHeaderProvider({ children }) {
     [dropdowns, handleDropdownToggle],
   );
 
-  return <RecipientHeaderContext.Provider value={providerValue}>{children}</RecipientHeaderContext.Provider>;
+  return <RecipientHeaderContext.Provider value={value}>{children}</RecipientHeaderContext.Provider>;
 }
 
 export default RecipientHeaderProvider;
