@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import Logo from 'assets/images/logo@3x.png';
 import styles from 'styles/Header.module.scss';

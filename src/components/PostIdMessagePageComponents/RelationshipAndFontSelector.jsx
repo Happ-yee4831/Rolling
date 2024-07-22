@@ -3,7 +3,7 @@ import { StyledSection } from '../../styles/PostIdMessageStyle';
 import ArrowDownSign from '../../assets/images/arrowDownSign.svg';
 import ArrowUpSign from '../../assets/images/arrowUpSign.svg';
 
-const RelationshipAndFontSelector = ({ children, optionType, last, setRelationship, setFont }) => {
+function RelationshipAndFontSelector({ children, optionType, last, setRelationship, setFont }) {
   let options = [];
 
   if (optionType === 'relationship') {
@@ -72,6 +72,6 @@ const RelationshipAndFontSelector = ({ children, optionType, last, setRelationsh
       </div>
     </StyledSection>
   );
-};
+}
 
 export default RelationshipAndFontSelector;

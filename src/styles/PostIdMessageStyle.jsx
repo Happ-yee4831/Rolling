@@ -1,4 +1,3 @@
-/* eslint-disable */
 import styled from 'styled-components';
 
 const StyledSection = styled.section`
@@ -69,7 +68,7 @@ const StyledSection = styled.section`
   }
 
   & ul {
-    position: ${(props) => (props.last ? 'static' : 'absolute')};
+    position: ${props => (props.last ? 'static' : 'absolute')};
     width: 320px;
     padding-top: 10px;
     padding-bottom: 10px;

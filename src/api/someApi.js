@@ -1,4 +1,3 @@
-/* eslint-disable */
 const BASE_URL = 'https://rolling-api.vercel.app/';
 
 const getDataBackgroundImg = async () => {

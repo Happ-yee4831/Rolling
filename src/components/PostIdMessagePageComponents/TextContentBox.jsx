@@ -1,4 +1,3 @@
-/* eslint-disable */
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { StyledSection } from '../../styles/PostIdMessageStyle';
@@ -32,7 +31,7 @@ const modules = {
 };
 
 const Editor = ({ content, setContent }) => {
-  const handleOnChange = (value) => {
+  const handleOnChange = value => {
     setContent(value.replaceAll(/<\/?p[^>]*>/g, ''));
   };
 

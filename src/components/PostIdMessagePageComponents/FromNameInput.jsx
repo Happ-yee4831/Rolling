@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useRef } from 'react';
 import { StyledSection } from '../../styles/PostIdMessageStyle';
 
@@ -6,11 +5,11 @@ const FromNameInput = ({ children, sender, setSender }) => {
   const inputRef = useRef();
   const pRef = useRef();
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     setSender(e.currentTarget.value);
   };
 
-  const handleBlur = (e) => {
+  const handleBlur = e => {
     if (!e.target.value) {
       inputRef.current.classList.add('error');
       pRef.current.classList.add('error');

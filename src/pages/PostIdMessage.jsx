@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormContainer, CreateButtonStyle } from '../styles/PostIdMessageStyle';

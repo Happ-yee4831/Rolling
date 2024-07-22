@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { useRef, useState, useEffect } from 'react';
 import {
   StyledSection,
@@ -13,7 +12,7 @@ const ProfileImgInputSelector = ({ children, setProfileImageURL }) => {
   const imgRef = useRef();
   const [profileImgs, setProfileImgs] = useState([]);
 
-  const handleChangeProfileImg = (e) => {
+  const handleChangeProfileImg = e => {
     imgRef.current.src = e.target.src;
     setProfileImageURL(e.target.src);
   };
@@ -42,20 +41,14 @@ const ProfileImgInputSelector = ({ children, setProfileImageURL }) => {
         <ProfileImgContainer>
           <span>프로필 이미지를 선택해 주세요!</span>
           <ProfileImgList>
-            {profileImgs.map((img) => {
-              return (
-                <MakeImgRound
-                  src={img}
-                  alt="샘플 프로필 이미지"
-                  onClick={handleChangeProfileImg}
-                />
-              );
+            {profileImgs.map(img => {
+              return <MakeImgRound src={img} alt="샘플 프로필 이미지" onClick={handleChangeProfileImg} />;
             })}
           </ProfileImgList>
         </ProfileImgContainer>
       </SelectedProfileImg>
     </StyledSection>
   );
-}
+};
 
 export default ProfileImgInputSelector;
