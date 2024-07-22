@@ -4,7 +4,7 @@ import getRecipients from 'api/paperListApi';
 import PaperCard from './PaperCard';
 import ChangeListButton from './ChangeListButton';
 
-const RECIPIEMTS_KEY = {
+const RECIPIENTS_KEY = {
   count: 0,
   next: null,
   previous: null,
@@ -19,11 +19,12 @@ const getPaperNum = () => {
 };
 
 function PaperList() {
-  const [list, setList] = useState(RECIPIEMTS_KEY);
+  const [list, setList] = useState(RECIPIENTS_KEY);
   const [paperNum, setPaperNum] = useState(getPaperNum());
 
   const fetchSortedData = async param => {
-    setList(await getRecipients(param));
+    const recipients = await getRecipients(param);
+    setList(recipients);
   };
 
   useEffect(() => {
