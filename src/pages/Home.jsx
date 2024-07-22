@@ -1,9 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Home.css';
 import rorringList1 from '../assets/images/RorringList_1.svg';
 import rorringList2 from '../assets/images/RorringList_2.png';
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/list');
+  };
+
   return (
     <div className="MainContainer">
       <div className="MainFirstContainer">
@@ -37,7 +44,7 @@ function Home() {
       </div>
 
       <div className="buttonContainer">
-        <button className="button" type="button" aria-label="구경해보기">
+        <button className="button" type="button" onClick={handleClick}>
           구경해보기
         </button>
       </div>
