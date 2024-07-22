@@ -1,3 +1,4 @@
+import '../styles/Home.css';
 import rorringList1 from '../assets/images/RorringList_1.svg';
 import rorringList2 from '../assets/images/RorringList_2.png';
 
