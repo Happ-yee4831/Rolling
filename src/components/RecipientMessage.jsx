@@ -1,10 +1,10 @@
 import React from 'react';
 import * as S from 'styles/styled/PostId';
 import getformatDate from 'utils/getformatDate';
-import { TrashBtn } from './Buttons';
+import TrashBtn from './Buttons';
 
 function RecipientMessage({ message, onModal, isEdit, onClickTrashBtn }) {
-  const { profileImageURL, relationship, sender, content, createdAt, font } = message;
+  const { profileImageURL, relationship, sender, content, createdAt } = message;
 
   const handleModal = () => {
     onModal(message);

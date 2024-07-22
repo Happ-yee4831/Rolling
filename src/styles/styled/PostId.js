@@ -44,7 +44,6 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-  /* position: relative; */
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -197,7 +196,7 @@ export const ScreenBlinder = styled.div`
 export const DeleteButtonContainer = styled.div`
   position: relative;
   text-align: end;
-  margin-top: 63px;
+  /* margin-top: 63px; */
 
   ${media.tablet`
 		width: 100%;
@@ -213,9 +212,10 @@ margin: 24px 24px;
 `;
 
 export const DeleteButton = styled.button`
-  position: 'absolute';
-  right: '0';
-
+  position: absolute;
+  right: 0;
+  bottom: 11px;
+  /* margin-top: 63px; */
   padding: 7px 17px;
   border-radius: 6px;
   background: #9935ff;
