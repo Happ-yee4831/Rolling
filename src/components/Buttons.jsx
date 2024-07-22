@@ -1,4 +1,4 @@
-import { BorderButton } from 'styles/styled/Reactions';
+import { BorderButton } from 'styles/styled/PostId';
 import TrashCan from '../assets/svgs/trash-can.svg';
 
 function TrashBtn({ onClick, styles }) {

@@ -4,7 +4,6 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Container, MessageList, SendMessageCard } from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
-import { Link } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import RecipientMessage from './RecipientMessage';
@@ -86,7 +85,7 @@ function RecipientMessageList({ id }) {
             <button
               type="button"
               onClick={() =>
-                deleteRecipients({ recipientId }).then(() => {
+                deleteRecipients({ id }).then(() => {
                   navigate('/post');
                 })
               }
