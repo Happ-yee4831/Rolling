@@ -1,18 +1,17 @@
 const BASE_URL = 'https://rolling-api.vercel.app/';
 
-const getDataBackgroundImg = async () => {
+export const getDataBackgroundImg = async () => {
   try {
     const response = await fetch(`${BASE_URL}background-images/`);
     const body = await response.json();
 
     return body;
   } catch (err) {
-    console.log(err.message);
+    return err;
   }
 };
 
-const postUserData = async sendData => {
-  console.log(sendData);
+export const postUserData = async (sendData) => {
   try {
     const response = await fetch(`${BASE_URL}8-5/recipients/`, {
       method: 'POST',
@@ -23,17 +22,17 @@ const postUserData = async sendData => {
     const body = await response.json();
     return body;
   } catch (err) {
-    console.error('에러입니다', err);
+    return err;
   }
 };
 
-const fetchProfileImg = async () => {
+export const fetchProfileImg = async () => {
   const response = await fetch(`${BASE_URL}profile-images/`);
   const data = await response.json();
   return data;
 };
 
-const createMessage = async messageData => {
+export const createMessage = async (messageData) => {
   const response = await fetch(`${BASE_URL}8-5/recipients/${messageData.recipientId}/messages/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -45,5 +44,3 @@ const createMessage = async messageData => {
   const body = await response.json();
   return body;
 };
-
-export { getDataBackgroundImg, postUserData, fetchProfileImg, createMessage };
