@@ -1,16 +1,9 @@
-/* eslint-disable */
 import { useState, useRef, useEffect } from 'react';
 import { StyledSection } from '../../styles/PostIdMessageStyle';
 import ArrowDownSign from '../../assets/images/arrowDownSign.svg';
 import ArrowUpSign from '../../assets/images/arrowUpSign.svg';
 
-const RelationshipAndFontSelector = ({
-  children,
-  optionType,
-  last,
-  setRelationship,
-  setFont,
-}) => {
+const RelationshipAndFontSelector = ({ children, optionType, last, setRelationship, setFont }) => {
   let options = [];
 
   if (optionType === 'relationship') {
@@ -23,13 +16,13 @@ const RelationshipAndFontSelector = ({
   const [selected, setSelected] = useState(options[0]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOptions = (e) => {
+  const handleOptions = e => {
     setIsOpen(prevIsOpen => !prevIsOpen);
     buttonRef.current.classList.toggle('focus');
   };
 
   useEffect(() => {
-    const handleCloseOptions = (e) => {
+    const handleCloseOptions = e => {
       if (buttonRef.current && !buttonRef.current.contains(e.target)) {
         setIsOpen(false);
         buttonRef.current.classList.remove('focus');
@@ -42,12 +35,12 @@ const RelationshipAndFontSelector = ({
     };
   }, []);
 
-  const selectOption = (e) => {
+  const selectOption = e => {
     const selectedOption = e.target.textContent;
     setSelected(selectedOption);
     setIsOpen(false);
     buttonRef.current.classList.remove('focus');
-    
+
     if (optionType === 'relationship') {
       setRelationship(selectedOption);
     } else if (optionType === 'font') {
@@ -69,13 +62,8 @@ const RelationshipAndFontSelector = ({
       <div className="toggle-options">
         {isOpen && (
           <ul>
-            {options.map((option) => (
-              <li
-                key={option}
-                onClick={selectOption}
-                tabIndex="0"
-                role="button"
-              >
+            {options.map(option => (
+              <li key={option} onClick={selectOption} tabIndex="0" role="button">
                 {option}
               </li>
             ))}
@@ -84,6 +72,6 @@ const RelationshipAndFontSelector = ({
       </div>
     </StyledSection>
   );
-}
+};
 
 export default RelationshipAndFontSelector;

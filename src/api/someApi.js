@@ -35,14 +35,11 @@ const fetchProfileImg = async () => {
 };
 
 const createMessage = async messageData => {
-  const response = await fetch(
-    `${BASE_URL}8-5/recipients/${messageData.recipientId}/messages/`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(messageData),
-    },
-  );
+  const response = await fetch(`${BASE_URL}8-5/recipients/${messageData.recipientId}/messages/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(messageData),
+  });
   if (!response.ok) {
     throw new Error('메세지를 생성하는 데 실패했습니다.');
   }
@@ -50,9 +47,4 @@ const createMessage = async messageData => {
   return body;
 };
 
-export {
-  getDataBackgroundImg,
-  postUserData,
-  fetchProfileImg,
-  createMessage,
-};
+export { getDataBackgroundImg, postUserData, fetchProfileImg, createMessage };
