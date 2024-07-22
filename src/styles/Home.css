@@ -1,265 +1,173 @@
-/* PC (기본 상태) */
-@media (max-width: 1980px) {
-  /* .container {
-    margin-top: 60px;
-    margin-left: 24px;
-    margin-right: 24px;
-  } */
+.MainContainer {
+  max-width: 1200px;
+  margin: 60px auto;
+  /* width: 100%; */
 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.MainFirstContainer {
+  width: 100%;
+  padding: 60px 40px 60px 60px;
+  border-radius: 16px;
+  background: #f6f8ff;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.Point {
+  padding: 6px 12px 6px 12px;
+  gap: 10px;
+  border-radius: 50px;
+  background: #9935ff;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #ffffff;
+}
+
+.LetterContainer {
+  height: 108px;
+  margin-top: 8px;
+}
+
+.Bold-text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+
+  display: block;
+  padding-top: 16px;
+}
+
+.Plain-text {
+  font-size: 18px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 28px;
+
+  display: block;
+  padding-top: 8px;
+}
+
+.MainSecondContainer {
+  margin-top: 30px;
+  padding: 60px 192px 60px 125px;
+  border-radius: 16px;
+  background: #f6f8ff;
+
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.button {
+  width: 280px;
+  border-radius: 12px;
+  border: none;
+  padding: 14px;
+  background: #9935ff;
+
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* PC: 1200px 이상 */
+@media (min-width: 1200px) {
+  .MainContainer {
+    max-width: 1200px;
+    margin: 60px auto;
+    /* width: 100%; */
+  }
   .MainFirstContainer {
-    margin-top: 60px;
-    padding: 60px 0px 60px 60px;
-    border-radius: 16px;
-    background: #f6f8ff;
+    height: 324px;
+    padding: 60px 40px 60px 60px;
   }
-
-  .content-point {
-    padding: 6px 12px 6px 12px;
-    gap: 10px;
-    border-radius: 50px;
-    background: #9935ff;
-
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: -0.005em;
-    text-align: left;
-    color: #ffffff;
-  }
-
-  .bold-text {
-    width: 268px;
-    height: 72px;
-
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #181818;
-  }
-
-  .plain-text {
-    padding-top: 8px;
-
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #555555;
-  }
-
-  .col-content3 {
-    display: flex;
-    justify-content: center;
-
-    padding-top: 24px;
-    margin-top: 24px;
-  }
-
-  .button {
-    margin-top: 24px;
-
-    width: 280px;
-    border-radius: 12px;
-    border: none;
-    padding: 14px;
-    background: #9935ff;
-
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: center;
-    color: #ffffff;
+  .MainSecondContainer {
+    height: 324px;
+    padding: 60px 192px 60px 125px;
   }
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-  .container {
+/* Tablet: 768px 이상 ~ 1199px 이하 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .MainContainer {
+    /* margin: 49px 24px auto 24px; */
     margin-top: 49px;
-    margin-left: 24px;
     margin-right: 24px;
-
-    max-width: 768px;
+    margin-left: 24px;
+    /* width: 100%; */
   }
-
-  .row-content {
+  .MainFirstContainer {
+    /* height: 440px; */
+    display: flex;
+    flex-direction: column;
     padding: 40px;
-    border-radius: 16px;
-    background: #f6f8ff;
   }
 
-  .content-point {
-    padding: 6px 12px 6px 12px;
-    gap: 10px;
-    border-radius: 50px;
-    background: #9935ff;
-
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: -0.005em;
-    text-align: left;
-    color: #ffffff;
+  .section1 {
+    margin-bottom: 36px;
   }
 
-  .bold-text {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #181818;
+  .MainSecondContainer {
+    /* height: 440px; */
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 40px;
   }
-
-  .plain-text {
-    padding-top: 8px;
-
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #555555;
+  .section2 {
+    margin-bottom: 36px;
   }
-
-  .row-content2 .col:first-child {
-    order: 2;
-  }
-
-  .row-content2 .col:last-child {
-    order: 1;
-  }
-
-  .row-content img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 36px;
-  }
-
   .button {
-    margin-top: 48px;
-    margin-bottom: 24px;
-
     width: 100%;
-    padding: 14px 24px 14px 24px;
-    border: none;
-    border-radius: 12px;
-    background: #9935ff;
-
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: center;
-    color: #ffffff;
   }
 }
 
-/* ----------------------------------------- */
-/* Mobile */
-@media (max-width: 390px) {
-  .container {
-    margin-top: 42px;
-    margin-left: 24px;
-    margin-right: 24px;
-
-    max-width: 360px;
+/* Mobile: 375px 이상 ~ 767px 이하 */
+@media (min-width: 360px) and (max-width: 767px) {
+  .MainContainer {
+    margin: 42px 24px auto 24px;
+    /* width: 100%; */
   }
-
-  .row-content {
-    /* width: 320px;
-    height: 352px;
-    padding: 24px 0px 62.28px 0px;
-    border-radius: 20px; */
-
+  .MainFirstContainer {
+    flex-direction: column;
     padding: 24px;
-    border-radius: 16px;
-    background: #f6f8ff;
   }
 
-  /* .row-content2 {
-    width: 320px;
-    height: 352px;
-    padding: 24px 0px 62.28px 0px;
-    border-radius: 20px;
- 
+  .section1 {
+    margin-bottom: 48px;
+  }
+
+  .MainSecondContainer {
+    flex-direction: column-reverse;
     padding: 24px;
-    border-radius: 16px;
-    background: #f6f8ff;
-  } */
-
-  .content-point {
-    padding: 4px 12px 4px 12px;
-    gap: 10px;
-    border-radius: 50px;
-    background: #9935ff;
-
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    letter-spacing: -0.005em;
-    text-align: left;
-    color: #ffffff;
   }
 
-  .bold-text {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #181818;
-  }
-
-  .plain-text {
-    padding-top: 4px;
-
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: -0.01em;
-    text-align: left;
-    color: #555555;
-  }
-
-  .row-content2 .col:first-child {
-    order: 2;
-  }
-
-  .row-content2 .col:last-child {
-    order: 1;
-  }
-
-  .row-content img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 44px;
+  .section2 {
+    margin-bottom: 48px;
   }
 
   .button {
-    margin-top: 37px;
-    margin-bottom: 24px;
-
+    margin: 24px 20px;
     width: 100%;
-    border-radius: 12px;
-    border: none;
-    padding: 14px;
-    background: #9935ff;
-
-    font-size: 18px;
-    line-height: 28px;
-    letter-spacing: -0.01em;
-    text-align: center;
-    color: #ffffff;
-  }
-
-  .Rorring1 {
-    width: 354.51px;
-    height: 89.72px;
-    /* top: 200px;
-left: -17px; */
   }
 }
 
