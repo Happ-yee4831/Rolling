@@ -195,27 +195,21 @@ export const ScreenBlinder = styled.div`
 
 export const DeleteButtonContainer = styled.div`
   position: relative;
-  text-align: end;
-  /* margin-top: 63px; */
+  z-index: 1000;
 
   ${media.tablet`
-		width: 100%;
-/* height: 55px; */
-margin: 24px 24px;
-
-
-
+  bottom: 24px; 
 	`}
   ${media.mobile`
-		
+    bottom: 24px; 
 	`}
 `;
 
 export const DeleteButton = styled.button`
   position: absolute;
+  /* position: fixed; */
   right: 0;
   bottom: 11px;
-  /* margin-top: 63px; */
   padding: 7px 17px;
   border-radius: 6px;
   background: #9935ff;
@@ -228,11 +222,18 @@ export const DeleteButton = styled.button`
   border: none;
 
   ${media.tablet`
-border-radius: 12px ;
+    position: fixed;
+  width: calc(100% - 48px);
+  border-radius: 12px ;
+  margin: 0 24px;
+
 
 	`}
   ${media.mobile`
-		
+		width: calc(100% - 40px);
+    border-radius: 12px ;
+    margin: 0 20px;
+
 	`}
 `;
 
