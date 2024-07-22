@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import rorringList1 from '../assets/images/RorringList_1.svg';
 import rorringList2 from '../assets/images/RorringList_2.png';
@@ -67,9 +68,11 @@ function Home() {
       {/* ---------- 세번째 content ---------- */}
       <div className="row">
         <div className="col col-content3">
-          <button className="button" type="button">
-            구경해보기
-          </button>
+          <Link to="/List">
+            <button className="button" type="button">
+              구경해보기
+            </button>
+          </Link>
         </div>
       </div>
     </div>
