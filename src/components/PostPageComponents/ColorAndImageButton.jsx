@@ -1,8 +1,7 @@
-/* eslint-disable */
 import { UpperLowerInterval, UnselectedButton, SelectedButton } from '../../styles/PostStyle';
 
 const ColorAndImageButton = ({ setIsColor, isColor }) => {
-  const changeType = (type) => {
+  const changeType = type => {
     setIsColor(type);
   };
 
@@ -24,6 +23,6 @@ const ColorAndImageButton = ({ setIsColor, isColor }) => {
       )}
     </UpperLowerInterval>
   );
-}
+};
 
 export default ColorAndImageButton;

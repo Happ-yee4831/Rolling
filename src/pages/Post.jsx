@@ -1,12 +1,6 @@
-/* eslint-disable */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  SubmitForm,
-  TopContainer,
-  ToNameInput,
-  BottomContainer
-} from '../styles/PostStyle';
+import { SubmitForm, TopContainer, ToNameInput, BottomContainer } from '../styles/PostStyle';
 import ColorAndImageButton from '../components/PostPageComponents/ColorAndImageButton';
 import BackgroundThingsList from '../components/PostPageComponents/BackgroundThingsList';
 import CreateButton from '../components/PostPageComponents/CreateButton';
@@ -30,7 +24,7 @@ const Post = () => {
     loadBackgroundImgData();
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     console.log('handleSubmit called');
 
@@ -54,7 +48,7 @@ const Post = () => {
     navigate(`/post/${id}`);
   };
 
-  const NameValueChange = (e) => {
+  const NameValueChange = e => {
     setUserName(e.target.value);
   };
 
@@ -83,9 +77,7 @@ const Post = () => {
           <BottomContainer>
             <div className="text">
               <p className="title">배경화면을 선택해 주세요.</p>
-              <p className="subtitle">
-                컬러를 선택하거나, 이미지를 선택할 수 있습니다.
-              </p>
+              <p className="subtitle">컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
             </div>
             <div>
               <ColorAndImageButton setIsColor={setIsColor} isColor={isColor} />

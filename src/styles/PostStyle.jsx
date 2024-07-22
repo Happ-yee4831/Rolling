@@ -1,4 +1,3 @@
-/* eslint-disable */
 import styled from 'styled-components';
 
 const CreateButtonStyle = styled.button`
@@ -51,7 +50,7 @@ const UnselectedButton = styled.button`
     width: 90px;
     padding: 6px 14px;
     font-weight: 700;
-    background-color: #F8F0FF;
+    background-color: #f8f0ff;
     border: 2px solid #861dee;
     color: #861dee;
   }
@@ -82,7 +81,6 @@ const SelectedButton = styled.button`
     }
   }
 `;
-
 
 const ListInterval = styled.div`
   margin: 45px 0;
@@ -127,11 +125,9 @@ const BackgroundColorList = styled(ListShape)`
   }
 `;
 
-
 const BackgroundImgList = styled(ListShape)`
-  background-image: url(${(props) => props.src});
+  background-image: url(${props => props.src});
 `;
-
 
 const SubmitForm = styled.form``;
 
