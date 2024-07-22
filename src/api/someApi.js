@@ -12,7 +12,7 @@ const getDataBackgroundImg = async () => {
   }
 };
 
-const postUserData = async (sendData) => {
+const postUserData = async sendData => {
   console.log(sendData);
   try {
     const response = await fetch(`${BASE_URL}8-5/recipients/`, {
@@ -20,7 +20,7 @@ const postUserData = async (sendData) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(sendData),
     });
-    
+
     const body = await response.json();
     return body;
   } catch (err) {
@@ -34,7 +34,7 @@ const fetchProfileImg = async () => {
   return data;
 };
 
-const createMessage = async (messageData) => {
+const createMessage = async messageData => {
   const response = await fetch(
     `${BASE_URL}8-5/recipients/${messageData.recipientId}/messages/`,
     {
