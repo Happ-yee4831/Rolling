@@ -19,7 +19,7 @@ function Home() {
             Point. 01 <br />
           </span>
           <span className="Bold-text">
-            누구나 손쉽게, 온라인 <br />
+            누구나 손쉽게, 온라인 <br className="break" />
             롤링 페이퍼를 만들 수 있어요
             <br />
           </span>

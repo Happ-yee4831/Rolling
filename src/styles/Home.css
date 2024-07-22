@@ -18,7 +18,7 @@
 }
 
 .Point {
-  padding: 6px 12px 6px 12px;
+  padding: 6px 12px;
   gap: 10px;
   border-radius: 50px;
   background: #9935ff;
@@ -31,9 +31,8 @@
   color: #ffffff;
 }
 
-.LetterContainer {
-  height: 108px;
-  margin-top: 8px;
+.break {
+  display: none;
 }
 
 .Bold-text {
@@ -71,6 +70,7 @@
   justify-content: center;
   padding-top: 24px;
   margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .button {
@@ -97,6 +97,10 @@
     height: 324px;
     padding: 60px 40px 60px 60px;
   }
+
+  .break {
+    display: inline;
+  }
   .MainSecondContainer {
     height: 324px;
     padding: 60px 192px 60px 125px;
@@ -116,7 +120,7 @@
     padding: 40px;
   }
 
-  .section1 {
+  .section1 .section2 {
     margin-bottom: 36px;
   }
 
@@ -125,9 +129,7 @@
     flex-direction: column-reverse;
     padding: 40px;
   }
-  .section2 {
-    margin-bottom: 36px;
-  }
+
   .button {
     width: 100%;
   }
@@ -141,23 +143,20 @@
   .MainFirstContainer {
     flex-direction: column;
     padding: 24px;
+    overflow: hidden;
   }
 
-  .section1 {
+  .section1 .section2 {
     margin-bottom: 48px;
   }
 
   .MainSecondContainer {
     flex-direction: column-reverse;
     padding: 24px;
-  }
-
-  .section2 {
-    margin-bottom: 48px;
+    overflow: hidden;
   }
 
   .button {
-    /* margin: 24px 20px; */
     width: 100%;
   }
 }
