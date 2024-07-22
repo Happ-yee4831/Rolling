@@ -102,8 +102,8 @@ export const MessageList = styled.ul`
   grid-auto-rows: 280px;
   justify-content: center;
   gap: 24px;
-  /* margin: 114px auto 0; */
-  margin-top: 11px;
+  margin: 114px auto 0;
+  /* margin-top: 11px; */
   padding-bottom: 246px;
   min-height: 100vh;
   ${media.tablet`
