@@ -7,6 +7,9 @@ import Post from 'pages/Post';
 import PostId from 'pages/PostId';
 import PostIdEdit from 'pages/PostIdEdit';
 import PostIdMessage from 'pages/PostIdMessage';
+import 'styles/reset.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'styles/custom.scss';
 
 function Router() {
   return (

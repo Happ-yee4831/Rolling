@@ -1,0 +1,368 @@
+/* PC (기본 상태) */
+@media (max-width: 1980px) {
+  .container {
+    margin-top: 60px;
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+
+  .row-content {
+    padding: 60px 0px 60px 60px;
+    border-radius: 16px;
+    background: #f6f8ff;
+  }
+
+  .content-point {
+    padding: 6px 12px 6px 12px;
+    gap: 10px;
+    border-radius: 50px;
+    background: #9935ff;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .bold-text {
+    width: 268px;
+    height: 72px;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #181818;
+  }
+
+  .plain-text {
+    padding-top: 8px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #555555;
+  }
+
+  .col-content3 {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+
+  .button {
+    margin-top: 24px;
+
+    width: 280px;
+    border-radius: 12px;
+    border: none;
+    padding: 14px;
+    background: #9935ff;
+
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    margin-top: 49px;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    max-width: 768px;
+  }
+
+  .row-content {
+    padding: 40px;
+    border-radius: 16px;
+    background: #f6f8ff;
+  }
+
+  .content-point {
+    padding: 6px 12px 6px 12px;
+    gap: 10px;
+    border-radius: 50px;
+    background: #9935ff;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .bold-text {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #181818;
+  }
+
+  .plain-text {
+    padding-top: 8px;
+
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #555555;
+  }
+
+  .row-content2 .col:first-child {
+    order: 2;
+  }
+
+  .row-content2 .col:last-child {
+    order: 1;
+  }
+
+  .row-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 36px;
+  }
+
+  .button {
+    margin-top: 48px;
+    margin-bottom: 24px;
+
+    width: 100%;
+    padding: 14px 24px 14px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #9935ff;
+
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #ffffff;
+  }
+}
+
+/* ----------------------------------------- */
+/* Mobile */
+@media (max-width: 390px) {
+  .container {
+    margin-top: 42px;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    max-width: 360px;
+  }
+
+  .row-content {
+    /* width: 320px;
+    height: 352px;
+    padding: 24px 0px 62.28px 0px;
+    border-radius: 20px; */
+
+    padding: 24px;
+    border-radius: 16px;
+    background: #f6f8ff;
+  }
+
+  /* .row-content2 {
+    width: 320px;
+    height: 352px;
+    padding: 24px 0px 62.28px 0px;
+    border-radius: 20px;
+ 
+    padding: 24px;
+    border-radius: 16px;
+    background: #f6f8ff;
+  } */
+
+  .content-point {
+    padding: 4px 12px 4px 12px;
+    gap: 10px;
+    border-radius: 50px;
+    background: #9935ff;
+
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: -0.005em;
+    text-align: left;
+    color: #ffffff;
+  }
+
+  .bold-text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #181818;
+  }
+
+  .plain-text {
+    padding-top: 4px;
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    color: #555555;
+  }
+
+  .row-content2 .col:first-child {
+    order: 2;
+  }
+
+  .row-content2 .col:last-child {
+    order: 1;
+  }
+
+  .row-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 44px;
+  }
+
+  .button {
+    margin-top: 37px;
+    margin-bottom: 24px;
+
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    padding: 14px;
+    background: #9935ff;
+
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .Rorring1 {
+    width: 354.51px;
+    height: 89.72px;
+    /* top: 200px;
+left: -17px; */
+  }
+}
+
+/* --------------------------------------- */
+/* .row-content {
+  padding: 60px 40px 60px 60px;
+  border-radius: 16px;
+  background: #f6f8ff;
+} */
+
+/* ----------------------------------------- */
+/* .MainPage-Card {
+  width: 205.43px;
+  height: 161.98px;
+  padding: 18.57px 12.03px 14.66px;
+
+  border-radius: 11.85px;
+  border: 0.99px solid #dbd9e9;
+  background: #ffffff;
+}
+
+.profileForm {
+  display: flex;
+
+  width: 180.67px;
+  height: 45.63px;
+}
+
+.img-Profile {
+  width: 31.6px;
+  height: 31.61px;
+  top: 19.75px;
+  left: 12.03px;
+  border-radius: 56.44px;
+
+  border: 0.56px solid #eeeeee;
+}
+
+.textForm {
+  width: 62.98px;
+  height: 33.98px;
+  gap: 1.98px;
+  margin-left: 7.76px;
+  align-content: center;
+}
+
+.From-text {
+  font-size: 11.85px;
+  font-weight: 400;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+}
+
+.Name-text {
+  font-size: 11.85px;
+  font-weight: 700;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+}
+
+.Freind-text {
+  padding: 2.06px 5.35px 2.06px 5.35px;
+  border-radius: 2.14px;
+  background: #e2f5ff;
+
+  font-size: 9.88px;
+  font-weight: 400;
+  line-height: 13.83px;
+  color: #00a2fe;
+}
+
+.Line-MainPage-Card {
+  width: 179.85px;
+  height: 0.99px;
+
+  background: #e1e1e1;
+}
+
+.TextBox-MainPage-Card {
+  width: 179.85px;
+  height: 53.53px;
+  margin-top: 7.9px;
+
+  font-size: 11.85px;
+  font-weight: 400;
+  line-height: 17.78px;
+  letter-spacing: -0.005em;
+  text-align: left;
+  color: #555555;
+}
+
+.Date-MainPage-Card {
+  width: 50px;
+  height: 13px;
+
+  font-size: 9.88px;
+  font-weight: 400;
+  line-height: 12.85px;
+  text-align: left;
+  color: #777777;
+}
+
+.plusForm {
+  border: 0.99px solid #00000066;
+} */
