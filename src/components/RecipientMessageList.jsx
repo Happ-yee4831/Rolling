@@ -82,6 +82,7 @@ function RecipientMessageList({ id }) {
       <div>
         {isEdit && (
           <div style={{ textAlign: 'end' }}>
+            TODO: absolute로 다시 구현
             <button
               type="button"
               onClick={() =>
