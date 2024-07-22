@@ -26,7 +26,7 @@ function RecipientHeaderProvider({ children }) {
     [dropdowns],
   );
 
-  const providerValue = useMemo(
+  const value = useMemo(
     () => ({
       dropdowns,
       handleDropdownToggle,
@@ -34,7 +34,7 @@ function RecipientHeaderProvider({ children }) {
     [dropdowns, handleDropdownToggle],
   );
 
-  return <RecipientHeaderContext.Provider value={providerValue}>{children}</RecipientHeaderContext.Provider>;
+  return <RecipientHeaderContext.Provider value={value}>{children}</RecipientHeaderContext.Provider>;
 }
 
 export default RecipientHeaderProvider;

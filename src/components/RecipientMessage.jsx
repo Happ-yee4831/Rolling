@@ -1,6 +1,5 @@
 import React from 'react';
 import * as S from 'styles/styled/PostId';
-import { Profile } from 'styles/styled/SendersProfile';
 import getformatDate from 'utils/getformatDate';
 import { TrashBtn } from './Buttons';
 
