@@ -1,9 +1,3 @@
-/* .row-content img,
-.row-content2 img {
-  max-width: 100%;
-  height: auto;
-} */
-
 /* PC (기본 상태) */
 @media (max-width: 1980px) {
   .container {
@@ -17,12 +11,6 @@
     border-radius: 16px;
     background: #f6f8ff;
   }
-
-  /* .row-content2 {
-    padding: 60px 40px 60px 125px;
-    border-radius: 16px;
-    background: #f6f8ff;
-  } */
 
   .content-point {
     padding: 6px 12px 6px 12px;
@@ -60,14 +48,6 @@
     text-align: left;
     color: #555555;
   }
-
-  /* .row-content img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 36px;
-
-    margin-right: 40px;
-  } */
 
   .col-content3 {
     display: flex;
@@ -272,6 +252,13 @@
     letter-spacing: -0.01em;
     text-align: center;
     color: #ffffff;
+  }
+
+  .Rorring1 {
+    width: 354.51px;
+    height: 89.72px;
+    /* top: 200px;
+left: -17px; */
   }
 }
 
