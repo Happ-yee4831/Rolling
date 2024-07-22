@@ -24,33 +24,36 @@ const RelationshipAndFontSelector = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOptions = (e) => {
-    setIsOpen(!isOpen);
-    e.target.classList.toggle('focus');
+    setIsOpen(prevIsOpen => !prevIsOpen);
+    buttonRef.current.classList.toggle('focus');
   };
 
   useEffect(() => {
     const handleCloseOptions = (e) => {
-      if (!buttonRef.current) {
-        return;
+      if (buttonRef.current && !buttonRef.current.contains(e.target)) {
+        setIsOpen(false);
+        buttonRef.current.classList.remove('focus');
       }
-      if (isOpen && !buttonRef.current.contains(e.target)) setIsOpen(false);
     };
 
     window.addEventListener('click', handleCloseOptions);
     return () => {
       window.removeEventListener('click', handleCloseOptions);
     };
-  }, [isOpen]);
+  }, []);
 
   const selectOption = (e) => {
-    setSelected(e.target.textContent);
+    const selectedOption = e.target.textContent;
+    setSelected(selectedOption);
+    setIsOpen(false);
+    buttonRef.current.classList.remove('focus');
+    
+    if (optionType === 'relationship') {
+      setRelationship(selectedOption);
+    } else if (optionType === 'font') {
+      setFont(selectedOption);
+    }
   };
-
-  if (optionType === 'relationship') {
-    setRelationship(selected);
-  } else if (optionType === 'font') {
-    setFont(selected);
-  }
 
   return (
     <StyledSection last={last}>
@@ -66,13 +69,16 @@ const RelationshipAndFontSelector = ({
       <div className="toggle-options">
         {isOpen && (
           <ul>
-            {options.map((option) => {
-              return (
-                <li onClick={selectOption} onKeyDown={selectOption}>
-                  {option}
-                </li>
-              );
-            })}
+            {options.map((option) => (
+              <li
+                key={option}
+                onClick={selectOption}
+                tabIndex="0"
+                role="button"
+              >
+                {option}
+              </li>
+            ))}
           </ul>
         )}
       </div>
