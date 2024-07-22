@@ -31,7 +31,7 @@ const modules = {
 };
 
 const Editor = ({ content, setContent }) => {
-  const handleOnChange = value => {
+  const handleOnChange = (value) => {
     setContent(value.replaceAll(/<\/?p[^>]*>/g, ''));
   };
 

@@ -1,4 +1,4 @@
-const BASE_URL = `https://rolling-api.vercel.app/8-5/recipients/`;
+const BASE_URL = 'https://rolling-api.vercel.app/8-5/recipients/';
 
 export default async function getRecipients(params) {
   try {

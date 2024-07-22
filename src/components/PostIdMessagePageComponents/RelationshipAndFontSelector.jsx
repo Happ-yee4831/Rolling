@@ -16,13 +16,13 @@ function RelationshipAndFontSelector({ children, optionType, last, setRelationsh
   const [selected, setSelected] = useState(options[0]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleOptions = e => {
-    setIsOpen(prevIsOpen => !prevIsOpen);
+  const handleOptions = (e) => {
+    setIsOpen((prevIsOpen) => !prevIsOpen);
     buttonRef.current.classList.toggle('focus');
   };
 
   useEffect(() => {
-    const handleCloseOptions = e => {
+    const handleCloseOptions = (e) => {
       if (buttonRef.current && !buttonRef.current.contains(e.target)) {
         setIsOpen(false);
         buttonRef.current.classList.remove('focus');
@@ -35,7 +35,7 @@ function RelationshipAndFontSelector({ children, optionType, last, setRelationsh
     };
   }, []);
 
-  const selectOption = e => {
+  const selectOption = (e) => {
     const selectedOption = e.target.textContent;
     setSelected(selectedOption);
     setIsOpen(false);
@@ -62,7 +62,7 @@ function RelationshipAndFontSelector({ children, optionType, last, setRelationsh
       <div className="toggle-options">
         {isOpen && (
           <ul>
-            {options.map(option => (
+            {options.map((option) => (
               <li key={option} onClick={selectOption} tabIndex="0" role="button">
                 {option}
               </li>
