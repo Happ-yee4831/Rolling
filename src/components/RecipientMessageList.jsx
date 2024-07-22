@@ -79,27 +79,37 @@ function RecipientMessageList({ id }) {
 
   return (
     <S.Container>
-      {isEdit && (
-        <S.DeleteButtonContainer>
-          <S.DeleteButton
-            type="button"
-            onClick={() =>
-              deleteRecipients({ id }).then(() => {
-                navigate('/post');
-              })
-            }>
-            삭제하기
-          </S.DeleteButton>
-        </S.DeleteButtonContainer>
-      )}
+      <div>
+        {isEdit && (
+          <div style={{ position: 'relative' }}>
+            <button
+              type="button"
+              onClick={() =>
+                deleteRecipients({ id }).then(() => {
+                  navigate('/post');
+                })
+              }
+              style={{
+                position: 'absolute',
+                right: '0',
+                // top: '-11px',
 
-      <S.MessageList>
-        {!isEdit && (
-          <S.SendMessageCard>
-            <img width={56} height={56} src={PlusImage} alt="add Message" />
-          </S.SendMessageCard>
+                padding: '7px 17px',
+                borderRadius: '6px',
+                background: '#9935FF',
+                fontSize: '16px',
+                fontWeight: 400,
+                lineHeight: '26px',
+                letterSpacing: '-0.01em',
+                textAlign: 'center',
+                color: '#FFFFFF',
+              }}>
+              삭제하기
+            </button>
+          </div>
         )}
 
+<S.MessageList>
         {messages?.map(message => {
           if (isEdit) {
             return (

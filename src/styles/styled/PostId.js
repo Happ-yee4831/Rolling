@@ -103,8 +103,8 @@ export const MessageList = styled.ul`
   grid-auto-rows: 280px;
   justify-content: center;
   gap: 24px;
-  /* margin: 114px auto 0; */
-  margin-top: 11px;
+  margin: 114px auto 0;
+  /* margin-top: 11px; */
   padding-bottom: 246px;
   min-height: 100vh;
   ${media.tablet`
@@ -194,12 +194,8 @@ export const ScreenBlinder = styled.div`
   z-index: 99;
 `;
 
-// export const DeleteButtonDivContainer = styled.div`
-//   position: relative;
-// `;
-
 export const DeleteButtonContainer = styled.div`
-  /* position: absolute; */
+  position: relative;
   text-align: end;
   margin-top: 63px;
 
@@ -217,6 +213,9 @@ margin: 24px 24px;
 `;
 
 export const DeleteButton = styled.button`
+  position: 'absolute';
+  right: '0';
+
   padding: 7px 17px;
   border-radius: 6px;
   background: #9935ff;
