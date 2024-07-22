@@ -81,7 +81,7 @@ function RecipientMessageList({ id }) {
     <S.Container>
       <div>
         {isEdit && (
-          <div style={{ textAlign: 'end', marginTop: '11px', marginBottom: '-104px' }}>
+          <div style={{ position: 'relative' }}>
             <button
               type="button"
               onClick={() =>
@@ -90,7 +90,10 @@ function RecipientMessageList({ id }) {
                 })
               }
               style={{
-                marginTop: '63px',
+                position: 'absolute',
+                right: '0',
+                // top: '-11px',
+
                 padding: '7px 17px',
                 borderRadius: '6px',
                 background: '#9935FF',
