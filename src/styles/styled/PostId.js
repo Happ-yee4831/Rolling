@@ -44,6 +44,7 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
+  /* position: relative; */
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -191,6 +192,49 @@ export const ScreenBlinder = styled.div`
   inset: 0;
   background-color: #00000099;
   z-index: 99;
+`;
+
+// export const DeleteButtonDivContainer = styled.div`
+//   position: relative;
+// `;
+
+export const DeleteButtonContainer = styled.div`
+  /* position: absolute; */
+  text-align: end;
+  margin-top: 63px;
+
+  ${media.tablet`
+		width: 100%;
+/* height: 55px; */
+margin: 24px 24px;
+
+
+
+	`}
+  ${media.mobile`
+		
+	`}
+`;
+
+export const DeleteButton = styled.button`
+  padding: 7px 17px;
+  border-radius: 6px;
+  background: #9935ff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+
+  ${media.tablet`
+border-radius: 12px ;
+
+	`}
+  ${media.mobile`
+		
+	`}
 `;
 
 export const ModalMessageCard = styled(MessageCard)`
