@@ -75,19 +75,19 @@ function RecipientMessageList({ id }) {
     setModalMessage(null);
   };
 
+  const handleDeleteRecipients = () => {
+    deleteRecipients({ recipientId: id }).then(() => {
+      navigate('/post');
+    });
+  };
+
   const [isEdit] = useState(pathname.startsWith('/post') && pathname.endsWith('/edit'));
 
   return (
     <S.Container>
       {isEdit && (
         <S.DeleteButtonContainer>
-          <S.DeleteButton
-            type="button"
-            onClick={() =>
-              deleteRecipients({ id }).then(() => {
-                navigate('/post');
-              })
-            }>
+          <S.DeleteButton type="button" onClick={handleDeleteRecipients}>
             삭제하기
           </S.DeleteButton>
         </S.DeleteButtonContainer>
