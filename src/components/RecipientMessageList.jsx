@@ -130,7 +130,7 @@ function RecipientMessageList({ id }) {
           <div ref={target} />
         </S.MessageList>
       </div>
-      {createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
+      {modalMessage && createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
     </S.Container>
   );
 }

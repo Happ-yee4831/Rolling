@@ -4,7 +4,7 @@ import getformatDate from 'utils/getformatDate';
 import { TrashBtn } from './Buttons';
 
 function RecipientMessage({ message, onModal, isEdit, onClickTrashBtn }) {
-  const { profileImageURL, relationship, sender, content, createdAt } = message;
+  const { profileImageURL, relationship, sender, content, createdAt, font } = message;
 
   const handleModal = () => {
     onModal(message);
@@ -13,7 +13,7 @@ function RecipientMessage({ message, onModal, isEdit, onClickTrashBtn }) {
   return (
     <S.MessageCard font={font} onClick={handleModal}>
       <S.Flex $gap={14} item="center">
-        <Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
+        <S.Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
         {(isEdit && (
           <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
             <S.Flex $flex="column" $gap="6">
