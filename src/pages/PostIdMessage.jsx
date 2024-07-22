@@ -12,7 +12,6 @@ import RelationshipAndFontSelector from '../components/PostIdMessagePageComponen
 import { createMessage } from '../api/someApi';
 
 const PostIdMessage = () => {
-  const [recipientId, setRecipientId] = useState('');
   const [sender, setSender] = useState('');
   const [profileImageURL, setProfileImageURL] = useState(
     'https://ibb.co/cvKLyF5',
