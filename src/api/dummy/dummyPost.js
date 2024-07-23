@@ -60,6 +60,10 @@ async function postRecipientMessage(id, index) {
   console.log(result);
 }
 
+for (let i = 16; i < 30; i++) {
+  postRecipientMessage(8390, i);
+}
+
 const emojis = ['😂', '😂', '😂', '😂', '😊', '🤣', '❤️', '👍', '👍', '👍', '👍', '👍'];
 
 async function postRecipientsReactions(id, emoji) {

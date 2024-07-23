@@ -4,15 +4,14 @@ import getformatDate from 'utils/getformatDate';
 import TrashBtn from './Buttons';
 
 function RecipientMessage({ message, onModal, isEdit, onClickTrashBtn }) {
-  const { profileImageURL, relationship, sender, content, createdAt } = message;
+  const { profileImageURL, relationship, sender, content, createdAt, font } = message;
 
   const handleModal = () => {
     onModal(message);
   };
 
   return (
-    // <S.MessageCard font={font} onClick={handleModal}>
-    <S.MessageCard onClick={handleModal}>
+    <S.MessageCard font={font} onClick={handleModal}>
       <S.Flex $gap={14} item="center">
         <S.Profile $width={56} $height={56} src={profileImageURL} alt="total message profile" />
         {(isEdit && (
