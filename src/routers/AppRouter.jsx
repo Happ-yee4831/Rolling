@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Layout from 'layouts/Layout';
 import Home from 'pages/Home';
-import ListPage from 'pages/List';
+import List from 'pages/List';
 import Post from 'pages/Post';
 import PostId from 'pages/PostId';
 import PostIdEdit from 'pages/PostIdEdit';
 import PostIdMessage from 'pages/PostIdMessage';
 import { ThemeProvider } from 'styled-components';
 import theme from 'styles/styled/theme';
+import Layout from 'layouts/Layout';
 import PostLayout from 'layouts/PostLayout';
 
 function Router() {
