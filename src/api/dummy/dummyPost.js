@@ -57,7 +57,6 @@ async function postRecipientMessage(id, index) {
     }),
   });
   const result = await response.json();
-  console.log(result);
 }
 
 for (let i = 16; i < 30; i++) {
@@ -78,7 +77,6 @@ async function postRecipientsReactions(id, emoji) {
     }),
   });
   const result = await response.json();
-  console.log(result);
 }
 
 async function patchMessageById(id) {

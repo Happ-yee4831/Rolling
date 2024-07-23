@@ -55,6 +55,8 @@ const Post = () => {
   const handleBlur = () => {
     if (!userName) {
       setError('값을 입력해 주세요.');
+    } else {
+      setError(null);
     }
   };
 
