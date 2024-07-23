@@ -10,7 +10,6 @@ export const RecipientHeaderContext = createContext();
 
 function RecipientHeaderProvider({ children }) {
   const [dropdowns, setDropdowns] = useState(initialDefault);
-  console.log(dropdowns);
 
   const handleDropdownToggle = useCallback(
     clickedKey => {

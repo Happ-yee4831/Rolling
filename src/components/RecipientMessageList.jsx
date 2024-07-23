@@ -5,7 +5,7 @@ import * as S from 'styles/styled/PostId';
 import PlusImage from 'assets/images/Enabled@2x.png';
 import getUrlInfo from 'utils/getUrlInfo';
 import { createPortal } from 'react-dom';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import RecipientMessage from './RecipientMessage';
 import Modal from './Modal';
 
@@ -95,7 +95,7 @@ function RecipientMessageList({ id }) {
 
       <S.MessageList>
         {!isEdit && (
-          <S.SendMessageCard>
+          <S.SendMessageCard as={Link} to={`/post/${id}/message`}>
             <img width={56} height={56} src={PlusImage} alt="add Message" />
           </S.SendMessageCard>
         )}
