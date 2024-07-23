@@ -1,15 +1,7 @@
-main, footer {
-  padding: 0 20px;
-
-  @media (min-width: 768px) {
-    padding: 0 24px;
-  }
-}
-
 main {
   margin: auto;
   max-width: 1248px;
-  padding-top: 50px;
+  padding: 0 24px;
 
   .popularPaper,
   .recentlyCreated {
@@ -39,7 +31,7 @@ main {
   }
 
   @media (width < 768px) {
-    padding-top: 40px;
+    padding: 0 20px;
 
     .recentlyCreated {
       margin-top: 74px;
@@ -47,10 +39,11 @@ main {
   }
 }
 
-main + footer {
+main+footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
+  padding: 0 20px;
   padding-bottom: 24px;
 
   .postLink {
@@ -70,6 +63,7 @@ main + footer {
     position: static;
     display: flex;
     justify-content: center;
+    padding: 0 24px;
 
     .postLink {
       margin-top: 64px;
