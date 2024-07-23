@@ -23,11 +23,11 @@ function RecipientHeader({ recipient, id }) {
         )}
         {device === 'mobile' && (
           <>
-            <S.RecipientSummary>
+            <S.RecipientSummary $content="start">
               <S.Receiver>To. {name}</S.Receiver>
             </S.RecipientSummary>
             <S.HorizontalDivider $width="100%" />
-            <S.RecipientSummary>
+            <S.RecipientSummary $content="end">
               <ReactionsMenu id={id} />
               <Shared recipient={recipient} />
             </S.RecipientSummary>

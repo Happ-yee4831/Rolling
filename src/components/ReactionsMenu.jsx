@@ -72,7 +72,6 @@ function ReactionsMenu({ id }) {
           <img width={24} height={24} src={EmojiAdd} alt="Add reactions" />
           {device !== 'mobile' && '추가'}
         </S.BorderButton>
-
         <EmojiPicker
           style={EmojiPickerStyles}
           onEmojiClick={handlePostReactions}
