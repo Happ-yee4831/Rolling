@@ -27,7 +27,6 @@ const Post = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('handleSubmit called');
 
     let sendData;
     if (isColor) {
