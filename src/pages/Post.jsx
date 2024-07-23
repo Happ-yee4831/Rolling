@@ -5,6 +5,7 @@ import ColorAndImageButton from '../components/PostPageComponents/ColorAndImageB
 import BackgroundThingsList from '../components/PostPageComponents/BackgroundThingsList';
 import CreateButton from '../components/PostPageComponents/CreateButton';
 import { getDataBackgroundImg, postUserData } from '../api/someApi';
+import styles from 'styles/borderBox.module.css';
 
 const Post = () => {
   const [isColor, setIsColor] = useState(true);
@@ -62,7 +63,7 @@ const Post = () => {
 
   return (
     <>
-      <main>
+      <main className={styles['box-sizing']}>
         <SubmitForm onSubmit={handleSubmit}>
           <TopContainer className="recipient_name">
             <p className="target">To.</p>

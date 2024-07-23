@@ -14,6 +14,7 @@ export async function getRecipientById(id) {
 }
 
 export async function getMessagesByRecipientId({ recipientId, offset = 0, limit = 6 }) {
+  console.log(recipientId, offset, limit);
   const params = { offset, limit };
   try {
     const result = await instance.get(`/recipients/${recipientId}/messages/`, {

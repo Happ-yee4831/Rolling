@@ -5,25 +5,26 @@ import * as S from 'styles/styled/PostId';
 import RecipientMessageList from 'components/RecipientMessageList';
 import RecipientHeader from 'components/RecipientHeader';
 
-function PostIdEdit() {
-  const { id: recipientId } = useParams();
+function PostId() {
+  const { id } = useParams();
   const [recipient, setRecipient] = useState({});
   const { backgroundColor } = recipient;
+
   useEffect(() => {
     const handleLoad = async () => {
-      const result = await getRecipientById(recipientId);
-      setRecipient(() => result);
+      const { data } = await getRecipientById(id);
+      setRecipient(() => data);
     };
 
     handleLoad();
-  }, [recipientId]);
+  }, [id]);
 
   return (
     <S.Background $backgroundColor={backgroundColor}>
-      <RecipientHeader recipient={recipient} id={recipientId} />
-      <RecipientMessageList recipientId={recipientId} />
+      <RecipientHeader recipient={recipient} id={id} />
+      <RecipientMessageList id={id} />
     </S.Background>
   );
 }
 
-export default PostIdEdit;
+export default PostId;
