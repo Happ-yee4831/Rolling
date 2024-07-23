@@ -1,5 +1,4 @@
 {
-  "arrowParens": "avoid",
   "bracketSameLine": true,
   "bracketSpacing": true,
   "trailingComma": "all",
@@ -8,5 +7,6 @@
   "useTabs": false,
   "tabWidth": 2,
   "printWidth": 120,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "arrowParens": "avoid"
 }

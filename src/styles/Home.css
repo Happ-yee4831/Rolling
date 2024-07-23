@@ -1,185 +1,190 @@
 .MainContainer {
-  max-width: 1200px;
-  margin: 60px auto;
+	max-width: 1200px;
+	margin: 60px auto;
 
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
 }
 
 .MainFirstContainer {
-  width: 100%;
-  padding: 60px 40px 60px 60px;
-  border-radius: 16px;
-  background: #f6f8ff;
+	width: 100%;
+	padding: 60px 40px 60px 60px;
+	border-radius: 16px;
+	background: #f6f8ff;
 
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .Point {
-  padding: 6px 12px;
-  gap: 10px;
-  border-radius: 50px;
-  background: #9935ff;
+	padding: 6px 12px;
+	gap: 10px;
+	border-radius: 50px;
+	background: #9935ff;
 
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
-  letter-spacing: -0.005em;
-  text-align: left;
-  color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: -0.005em;
+	text-align: left;
+	color: #ffffff;
 }
 
 .break {
-  display: none;
+	display: none;
 }
 
 .Bold-text {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 36px;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 36px;
 
-  display: block;
-  padding-top: 16px;
+	display: block;
+	padding-top: 16px;
 }
 
 .Plain-text {
-  font-size: 18px;
-  font-weight: 400;
-  color: #555555;
-  line-height: 28px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #555555;
+	line-height: 28px;
 
-  display: block;
-  padding-top: 8px;
+	display: block;
+	padding-top: 8px;
 }
 
 .MainSecondContainer {
-  margin-top: 30px;
-  padding: 60px 192px 60px 125px;
-  border-radius: 16px;
-  background: #f6f8ff;
+	margin-top: 30px;
+	padding: 60px 192px 60px 125px;
+	border-radius: 16px;
+	background: #f6f8ff;
 
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
 }
 
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  padding-top: 24px;
-  margin-top: 24px;
-  margin-bottom: 24px;
+	display: flex;
+	justify-content: center;
+	padding-top: 24px;
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 
 .button {
-  width: 280px;
-  border-radius: 12px;
-  border: none;
-  padding: 14px;
-  background: #9935ff;
+	width: 280px;
+	border-radius: 12px;
+	border: none;
+	padding: 14px;
+	background: #9935ff;
 
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.01em;
-  text-align: center;
-  color: #ffffff;
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: -0.01em;
+	text-align: center;
+	color: #ffffff;
 }
 
 /* PC: 1200px 이상 */
 @media (min-width: 1200px) {
-  .MainContainer {
-    max-width: 1200px;
-    margin: 60px auto;
-  }
-  .MainFirstContainer {
-    height: 324px;
-    padding: 60px 40px 60px 60px;
-  }
+	.MainContainer {
+		max-width: 1200px;
+		margin: 60px auto;
+	}
 
-  .break {
-    display: inline;
-  }
-  .MainSecondContainer {
-    height: 324px;
-    padding: 60px 192px 60px 125px;
-  }
+	.MainFirstContainer {
+		height: 324px;
+		padding: 60px 40px 60px 60px;
+	}
+
+	.break {
+		display: inline;
+	}
+
+	.MainSecondContainer {
+		height: 324px;
+		padding: 60px 192px 60px 125px;
+	}
 }
 
 /* Tablet: 768px 이상 ~ 1199px 이하 */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .MainContainer {
-    margin-top: 49px;
-    margin-right: 24px;
-    margin-left: 24px;
-  }
-  .MainFirstContainer {
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-  }
+	.MainContainer {
+		margin-top: 49px;
+		margin-right: 24px;
+		margin-left: 24px;
+	}
 
-  .section1 {
-    /* margin: 36px; */
-    margin-bottom: 36px;
-  }
+	.MainFirstContainer {
+		display: flex;
+		flex-direction: column;
+		padding: 40px;
+	}
 
-  .section1Img {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
+	.section1 {
+		/* margin: 36px; */
+		margin-bottom: 36px;
+	}
 
-  .MainSecondContainer {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 40px;
-  }
+	.section1Img {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
 
-  .section2 {
-    margin-bottom: 36px;
-  }
+	.MainSecondContainer {
+		display: flex;
+		flex-direction: column-reverse;
+		padding: 40px;
+	}
 
-  .button {
-    width: 100%;
-  }
+	.section2 {
+		margin-bottom: 36px;
+	}
+
+	.button {
+		width: 100%;
+	}
 }
 
 /* Mobile: 375px 이상 ~ 767px 이하 */
 @media (min-width: 360px) and (max-width: 767px) {
-  .MainContainer {
-    margin: 42px 24px auto 24px;
-  }
-  .MainFirstContainer {
-    flex-direction: column;
-    padding: 24px;
-    overflow: hidden;
-    border-radius: 20px;
-  }
+	.MainContainer {
+		margin: 42px 24px auto 24px;
+	}
 
-  .section1 {
-    margin: 24px 24px 48px 24px;
-    /* margin-bottom: 48px; */
-  }
+	.MainFirstContainer {
+		flex-direction: column;
+		padding: 24px;
+		overflow: hidden;
+		border-radius: 20px;
+	}
 
-  .MainSecondContainer {
-    flex-direction: column-reverse;
-    padding: 24px;
-    overflow: hidden;
-    border-radius: 20px;
-  }
-  .section2 {
-    margin: 24px 24px 48px 24px;
-    /* margin-bottom: 48px; */
-  }
+	.section1 {
+		margin: 24px 24px 48px 24px;
+		/* margin-bottom: 48px; */
+	}
 
-  .break {
-    display: inline;
-  }
+	.MainSecondContainer {
+		flex-direction: column-reverse;
+		padding: 24px;
+		overflow: hidden;
+		border-radius: 20px;
+	}
 
-  .button {
-    width: 100%;
-  }
+	.section2 {
+		margin: 24px 24px 48px 24px;
+		/* margin-bottom: 48px; */
+	}
+
+	.break {
+		display: inline;
+	}
+
+	.button {
+		width: 100%;
+	}
 }
 
 /* ----------------------------------------- */

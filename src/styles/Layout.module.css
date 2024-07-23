@@ -1,0 +1,25 @@
+body > div {
+  --header-height: 64px;
+
+  > :where(header, main, footer) {
+    padding: 0 20px;
+
+    @media (min-width: 768px) {
+      padding: 0 24px;
+    }
+  }
+
+  .Temporary {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    border-bottom: 1px solid #ededed;
+  }
+
+  main {
+    margin: auto;
+    max-width: 1248px;
+    padding-top: var(--header-height);
+  }
+}

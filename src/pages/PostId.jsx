@@ -1,57 +1,29 @@
-import React, { useEffect, useRef, useState } from 'react';
-import thumbEmoji from 'assets/images/thumb.png';
-import dummyRecipient from 'api/dummy/dummy';
+import React, { useEffect, useState } from 'react';
+import { getRecipientById } from 'api';
+import { useParams } from 'react-router-dom';
+import * as S from 'styles/styled/PostId';
+import RecipientMessageList from 'components/RecipientMessageList';
+import RecipientHeader from 'components/RecipientHeader';
 
 function PostId() {
-  const [recipient] = useState(dummyRecipient);
-  const [value, setValue] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const ref = useRef();
-  const { name, recentMessages } = recipient;
-
-  const handleChange = e => {
-    const nextValue = e.target.files[0];
-    console.log(nextValue);
-    setValue(nextValue);
-  };
+  const { id } = useParams();
+  const [recipient, setRecipient] = useState({});
+  const { backgroundColor } = recipient;
 
   useEffect(() => {
-    if (!value) return undefined;
-
-    const nextPreview = URL.createObjectURL(value);
-    setPreview(nextPreview);
-
-    return () => {
-      setPreview(null);
-      URL.revokeObjectURL(nextPreview);
+    const handleLoad = async () => {
+      const { data } = await getRecipientById(id);
+      setRecipient(() => data);
     };
-  }, [value]);
+
+    handleLoad();
+  }, [id]);
 
   return (
-    <main>
-      <div>
-        <h1>To. {name}</h1>
-        <figure>
-          {recentMessages.map(message => (
-            <img key={message.id} src={message.profileImageURL} alt="profile" />
-          ))}
-        </figure>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <div>
-          <img src={thumbEmoji} alt="emoji" />
-          <p>24</p>
-        </div>
-        <img src={preview} alt="preview" />
-        <input ref={ref} name="imgUrl" type="file" onChange={handleChange} />
-      </div>
-    </main>
+    <S.Background $backgroundColor={backgroundColor}>
+      <RecipientHeader recipient={recipient} id={id} />
+      <RecipientMessageList id={id} />
+    </S.Background>
   );
 }
 
