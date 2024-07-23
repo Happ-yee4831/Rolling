@@ -9,6 +9,5 @@ function TrashBtn({ onClick, styles }) {
   );
 }
 
-function _() {}
-
-export { TrashBtn, _ };
+export default TrashBtn;
+// export { TrashBtn };

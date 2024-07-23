@@ -75,61 +75,48 @@ function RecipientMessageList({ id }) {
     setModalMessage(null);
   };
 
+  const handleDeleteRecipients = () => {
+    deleteRecipients({ recipientId: id }).then(() => {
+      navigate('/post');
+    });
+  };
+
   const [isEdit] = useState(pathname.startsWith('/post') && pathname.endsWith('/edit'));
 
   return (
     <S.Container>
-      <div>
-        {isEdit && (
-          <div style={{ textAlign: 'end' }}>
-            <button
-              type="button"
-              onClick={() =>
-                deleteRecipients({ id }).then(() => {
-                  navigate('/post');
-                })
-              }
-              style={{
-                marginTop: '63px',
-                padding: '7px 17px',
-                borderRadius: '6px',
-                background: '#9935FF',
-                fontSize: '16px',
-                fontWeight: 400,
-                lineHeight: '26px',
-                letterSpacing: '-0.01em',
-                textAlign: 'center',
-                color: '#FFFFFF',
-              }}>
-              삭제하기
-            </button>
-          </div>
+      {isEdit && (
+        <S.DeleteButtonContainer>
+          <S.DeleteButton type="button" onClick={handleDeleteRecipients}>
+            삭제하기
+          </S.DeleteButton>
+        </S.DeleteButtonContainer>
+      )}
+
+      <S.MessageList>
+        {!isEdit && (
+          <S.SendMessageCard>
+            <img width={56} height={56} src={PlusImage} alt="add Message" />
+          </S.SendMessageCard>
         )}
-        <S.MessageList>
-          {!isEdit && (
-            <S.SendMessageCard>
-              <img width={56} height={56} src={PlusImage} alt="add Message" />
-            </S.SendMessageCard>
-          )}
 
-          {messages?.map(message => {
-            if (isEdit) {
-              return (
-                <RecipientMessage
-                  onModal={onModalOpen}
-                  key={message.id}
-                  message={message}
-                  isEdit={isEdit}
-                  onClickTrashBtn={() => deleteMessage({ messageId: message.id })}
-                />
-              );
-            }
-            return <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />;
-          })}
+        {messages?.map(message => {
+          if (isEdit) {
+            return (
+              <RecipientMessage
+                onModal={onModalOpen}
+                key={message.id}
+                message={message}
+                isEdit={isEdit}
+                onClickTrashBtn={() => deleteMessage({ messageId: message.id })}
+              />
+            );
+          }
+          return <RecipientMessage onModal={onModalOpen} key={message.id} message={message} />;
+        })}
 
-          <div ref={target} />
-        </S.MessageList>
-      </div>
+        <div ref={target} />
+      </S.MessageList>
       {modalMessage && createPortal(<Modal value={modalMessage} onModalClose={onModalClose} />, document.body)}
     </S.Container>
   );

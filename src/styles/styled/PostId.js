@@ -102,8 +102,8 @@ export const MessageList = styled.ul`
   grid-auto-rows: 280px;
   justify-content: center;
   gap: 24px;
-  /* margin: 114px auto 0; */
-  margin-top: 11px;
+  margin: 114px auto 0;
+  /* margin-top: 11px; */
   padding-bottom: 246px;
   min-height: 100vh;
   ${media.tablet`
@@ -191,6 +191,50 @@ export const ScreenBlinder = styled.div`
   inset: 0;
   background-color: #00000099;
   z-index: 99;
+`;
+
+export const DeleteButtonContainer = styled.div`
+  position: relative;
+  z-index: 1000;
+
+  ${media.tablet`
+  bottom: 24px; 
+	`}
+  ${media.mobile`
+    bottom: 24px; 
+	`}
+`;
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  /* position: fixed; */
+  right: 0;
+  bottom: 11px;
+  padding: 7px 17px;
+  border-radius: 6px;
+  background: #9935ff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+
+  ${media.tablet`
+    position: fixed;
+  width: calc(100% - 48px);
+  border-radius: 12px ;
+  margin: 0 24px;
+
+
+	`}
+  ${media.mobile`
+		width: calc(100% - 40px);
+    border-radius: 12px ;
+    margin: 0 20px;
+
+	`}
 `;
 
 export const ModalMessageCard = styled(MessageCard)`
