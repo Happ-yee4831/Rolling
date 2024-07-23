@@ -25,7 +25,7 @@ function Home() {
           </span>
           <span className="Plain-text">로그인 없이 자유롭게 만들어요.</span>
         </div>
-        <img src={rorringList1} alt="Rorring1" />
+        <img className="section1Img" src={rorringList1} alt="Rorring1" />
       </div>
 
       <div className="MainSecondContainer">
@@ -35,7 +35,7 @@ function Home() {
             Point. 02 <br />
           </span>
           <span className="Bold-text">
-            서로에게 이모지로 감정을 <br />
+            서로에게 이모지로 감정을 <br className="break" />
             표현해보세요
             <br />
           </span>
