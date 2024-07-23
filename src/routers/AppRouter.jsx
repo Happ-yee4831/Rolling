@@ -1,8 +1,7 @@
-import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from 'layouts/Layout';
 import Home from 'pages/Home';
-import List from 'pages/List';
+import ListPage from 'pages/List';
 import Post from 'pages/Post';
 import PostId from 'pages/PostId';
 import PostIdEdit from 'pages/PostIdEdit';
