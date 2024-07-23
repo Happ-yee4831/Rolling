@@ -1,16 +1,16 @@
 import styled, { css, keyframes } from 'styled-components';
 
 const toastInBottom = keyframes`
-	from {
+from {
     transform: translate(-50%, 300%);
   }
-  to {
+  to { 
     transform: translate(-50%, 0);
   }
 `;
 
-const toastOutBottom = keyframes`
-	from {
+const toastOutBottom = keyframes`  
+from {
     transform: translate(-50%, 0);
   }
   to {
@@ -44,7 +44,6 @@ export const ToastContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  width: 524px;
   height: 64px;
   padding: 19px 30px;
   border-radius: 8px;
@@ -52,15 +51,14 @@ export const ToastContainer = styled.div`
   background-color: #000000cc;
   transform: translate(-50%, 300%);
 
-  ${({ open }) =>
-    open
-      ? css`
-          transform: translate(-50%, 0);
+  ${({ open }) => (open
+    ? css`
+          transform: translate(-50%, 0); 
           animation: 1s ${toastInBottom};
         `
-      : css`
+    : css`
           animation: 1s ${toastOutBottom};
-        `}
+        `)}
 `;
 
 export const ToastMessage = styled.span`

@@ -92,7 +92,7 @@ function PaperCard({ paper }) {
 
         <section className={style.topReactions}>
           {!!paper.reactionCount &&
-            paper.topReactions.map(Reaction => (
+            paper.topReactions.map((Reaction) => (
               <div key={Reaction.id} className={style.emoji}>
                 <div>{Reaction.emoji}</div>
                 <p>{Reaction.count}</p>

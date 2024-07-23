@@ -1,4 +1,4 @@
-const BASE_URL = `https://rolling-api.vercel.app/8-5`;
+const BASE_URL = 'https://rolling-api.vercel.app/8-5';
 const ID = 1;
 
 const backgroundColors = ['beige' | 'purple' | 'blue' | 'green'];
@@ -20,19 +20,19 @@ async function postRecipients() {
 }
 
 const relationships = [
-  //'가족',
+  // '가족',
   '친구',
   '지인',
   '동료',
 ];
 const fonts = [
-  //'Noto Sans',
+  // 'Noto Sans',
   'Pretendard',
   '나눔명조',
   '나눔손글씨 손편지체',
 ];
 const profileImageURLs = [
-  //'https://avatars.githubusercontent.com/u/170175553?v=4',
+  // 'https://avatars.githubusercontent.com/u/170175553?v=4',
   'https://avatars.githubusercontent.com/u/71882441?v=4',
   'https://avatars.githubusercontent.com/u/127219927?v=4',
   'https://avatars.githubusercontent.com/u/164169016?v=4',

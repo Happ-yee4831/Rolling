@@ -5,15 +5,16 @@ export const breakpoints = {
   tablet: '@media (max-width: 1199px)',
 };
 
-const media = Object.entries(breakpoints).reduce((acc, [key, value]) => {
-  return {
+const media = Object.entries(breakpoints).reduce(
+  (acc, [key, value]) => ({
     ...acc,
     [key]: (first, ...interpolations) => css`
       ${value} {
         ${css(first, ...interpolations)}
       }
     `,
-  };
-}, {});
+  }),
+  {},
+);
 
 export default media;

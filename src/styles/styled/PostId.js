@@ -1,3 +1,6 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable no-tabs */
 import styled, { css } from 'styled-components';
 import { font16Regular } from './Toast';
 import media from './media';
@@ -66,8 +69,8 @@ export const RecipientSummary = styled(Container)`
   ${media.mobile`
 		grid-template-columns: repeat(5, auto);
 		grid-template-rows: 1fr;
-		justify-content: start;
-		padding: 12px 20px;
+		justify-content: start;   
+		padding: 12px 20px;   
 		${Receiver} {
 			grid-column: 1 / -1;
 		}
@@ -78,8 +81,8 @@ export const VerticalDivider = styled.div`
   width: 1px;
   background-color: ${({ theme }) => theme.color.grayBorder};
   height: ${({ $height }) => `${$height}px`};
-  margin-left: ${({ $marginX, $marginLeft }) => `${$marginX ?? $marginLeft}px`};
-  margin-right: ${({ $marginX, $marginRight }) => `${$marginX ?? $marginRight}px`};
+  margin-left: ${({ $marginX, $marginLeft }) => `${$marginX || $marginLeft}px`};
+  margin-right: ${({ $marginX, $marginRight }) => `${$marginX || $marginRight}px`};
 `;
 
 export const HorizontalDivider = styled.div`
@@ -92,8 +95,8 @@ export const HorizontalDivider = styled.div`
     }
     return `${$width}px`;
   }};
-  margin-top: ${({ $marginY, $marginTop }) => `${$marginY ?? $marginTop}px`};
-  margin-bottom: ${({ $marginY, $marginBottom }) => `${$marginY ?? $marginBottom}px`};
+  margin-top: ${({ $marginY, $marginTop }) => `${$marginY || $marginTop}px`};
+  margin-bottom: ${({ $marginY, $marginBottom }) => `${$marginY || $marginBottom}px`};
 `;
 
 export const MessageList = styled.ul`
@@ -117,7 +120,7 @@ export const MessageList = styled.ul`
 `;
 
 export const MessageCard = styled.li`
-  ${({ font }) => fontFamily[font] ?? fontFamily['Noto Sans']}
+  ${({ font }) => fontFamily[font] || fontFamily['Noto Sans']}
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -152,9 +155,7 @@ export const Flex = styled.div`
 `;
 
 export const Relation = styled.span`
-  ${({ $relation }) => {
-    return relationShipColors[$relation];
-  }};
+  ${({ $relation }) => relationShipColors[$relation]};
   align-self: flex-start;
   padding: 0 8px;
   border-radius: 4px;

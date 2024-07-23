@@ -22,7 +22,7 @@ function PaperList() {
   const [list, setList] = useState(RECIPIENTS_KEY);
   const [paperNum, setPaperNum] = useState(getPaperNum());
 
-  const fetchSortedData = async param => {
+  const fetchSortedData = async (param) => {
     const recipients = await getRecipients(param);
     setList(recipients);
   };
@@ -40,14 +40,14 @@ function PaperList() {
     };
   }, [paperNum]);
 
-  const handleListChange = changeList => {
+  const handleListChange = (changeList) => {
     fetchSortedData(changeList);
   };
 
   return (
     <div className={style.buttonPosition}>
       <div className={style.paperList}>
-        {list.results.map(paper => (
+        {list.results.map((paper) => (
           <PaperCard paper={paper} key={paper.id} />
         ))}
       </div>
