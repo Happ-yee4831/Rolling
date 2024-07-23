@@ -69,7 +69,7 @@ export const RecipientSummary = styled(Container)`
   ${media.mobile`
 		grid-template-columns: repeat(5, auto);
 		grid-template-rows: 1fr;
-		justify-content: start;   
+		justify-content: ${({ $content }) => $content ?? 'center'};
 		padding: 12px 20px;   
 		${Receiver} {
 			grid-column: 1 / -1;
