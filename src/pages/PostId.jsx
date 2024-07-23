@@ -8,7 +8,7 @@ import RecipientHeader from 'components/RecipientHeader';
 function PostId() {
   const { id } = useParams();
   const [recipient, setRecipient] = useState({});
-  const { backgroundColor } = recipient;
+  const { backgroundColor, backgroundImageURL } = recipient;
 
   useEffect(() => {
     const handleLoad = async () => {
@@ -20,7 +20,7 @@ function PostId() {
   }, [id]);
 
   return (
-    <S.Background $backgroundColor={backgroundColor}>
+    <S.Background $backgroundImage={backgroundImageURL} $backgroundColor={backgroundColor}>
       <RecipientHeader recipient={recipient} id={id} />
       <RecipientMessageList id={id} />
     </S.Background>

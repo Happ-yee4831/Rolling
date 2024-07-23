@@ -40,10 +40,12 @@ const relationShipColors = {
 };
 
 export const Background = styled.div`
-  background-color: ${({ theme, $backgroundColor }) => {
-    if (theme.backgroundColor[$backgroundColor]) return theme.backgroundColor[$backgroundColor];
-    return 'white';
+  ${props => {
+    if (props.$backgroundImage) return `background-image: url(${props.$backgroundImage})`;
+    if (props.$backgroundColor) return `background-color: ${props.theme.backgroundColor[props.$backgroundColor]}`;
+    return 'background-color: white';
   }};
+  background-size: cover;
 `;
 
 export const Container = styled.div`
