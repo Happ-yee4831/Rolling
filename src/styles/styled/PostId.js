@@ -45,7 +45,8 @@ export const Background = styled.div`
     if (props.$backgroundColor) return `background-color: ${props.theme.backgroundColor[props.$backgroundColor]}`;
     return 'background-color: white';
   }};
-  background-size: cover;
+  background-size: 100% auto;
+  background-repeat: repeat-y;
 `;
 
 export const Container = styled.div`
